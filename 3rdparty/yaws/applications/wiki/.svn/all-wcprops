@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/wiki
+END
+start.sh
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/erlyaws/!svn/ver/528/trunk/yaws/applications/wiki/start.sh
+END
+wiki.conf
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/erlyaws/!svn/ver/916/trunk/yaws/applications/wiki/wiki.conf
+END
+include.mk
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/erlyaws/!svn/ver/133/trunk/yaws/applications/wiki/include.mk
+END
+vsn.mk
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/erlyaws/!svn/ver/115/trunk/yaws/applications/wiki/vsn.mk
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/erlyaws/!svn/ver/528/trunk/yaws/applications/wiki/Makefile
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/erlyaws/!svn/ver/948/trunk/yaws/applications/wiki/README
+END

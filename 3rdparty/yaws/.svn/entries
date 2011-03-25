@@ -1,0 +1,229 @@
+8
+
+dir
+1220
+https://erlyaws.svn.sourceforge.net/svnroot/erlyaws/trunk/yaws
+https://erlyaws.svn.sourceforge.net/svnroot/erlyaws
+
+
+
+2008-02-17T18:07:35.072207Z
+1220
+klacke
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+9fbdc01b-0d2c-0410-bfb7-fb27d70d8b52
+
+priv
+dir
+
+configure
+file
+
+
+
+
+2008-02-24T16:10:41.000000Z
+271140db3c456c40ca676069ecfed338
+2008-02-14T22:35:53.232863Z
+1218
+klacke
+has-props
+
+debian
+dir
+
+LICENSE
+file
+
+
+
+
+2008-02-24T16:10:41.000000Z
+95cd2a0b138fe64771b7d9ef67049326
+2006-04-05T07:53:08.000000Z
+958
+klacke
+has-props
+
+include
+dir
+
+www
+dir
+
+sourceforge-site
+dir
+
+applications
+dir
+
+configure.in
+file
+
+
+
+
+2008-02-24T16:10:41.000000Z
+31c4db750c3a7f4450f960e4f921841a
+2008-02-14T16:57:23.311765Z
+1217
+klacke
+has-props
+
+src
+dir
+
+scripts
+dir
+
+ChangeLog
+file
+
+
+
+
+2008-02-24T16:10:41.000000Z
+4a03a2b985e3cda1c86afb3e90dd0e1c
+2007-02-08T15:48:25.000000Z
+1088
+klacke
+has-props
+
+c_src
+dir
+
+config.guess
+file
+
+
+
+
+2008-02-24T16:10:41.000000Z
+bfc7b768934fc0fe9164a20fb97c2fe8
+2004-03-13T11:03:03.000000Z
+630
+klacke
+has-props
+
+config.sub
+file
+
+
+
+
+2008-02-24T16:10:41.000000Z
+9a3f2aa444263674d621cbe15d83b828
+2004-03-13T11:03:03.000000Z
+630
+klacke
+has-props
+
+README
+file
+
+
+
+
+2008-02-24T16:10:41.000000Z
+86e2134e38a273d4f9505f996391dd9e
+2006-06-16T12:25:05.000000Z
+981
+klacke
+has-props
+
+include.mk.in
+file
+
+
+
+
+2008-02-24T16:10:41.000000Z
+41678baf130ea85f565de0fc7348806f
+2008-02-14T22:35:53.232863Z
+1218
+klacke
+has-props
+
+ssl
+dir
+
+doc
+dir
+
+bin
+dir
+
+man
+dir
+
+two-mode-mode.el
+file
+
+
+
+
+2008-02-24T16:10:41.000000Z
+0cf727e4a592cda6a956fc83f4c04fc0
+2008-02-14T16:57:23.311765Z
+1217
+klacke
+has-props
+
+vsn.mk
+file
+
+
+
+
+2008-02-24T16:10:41.000000Z
+ebc0842401227cc18123714e696ff933
+2008-02-03T14:56:08.855731Z
+1211
+klacke
+has-props
+
+ebin
+dir
+
+Makefile
+file
+
+
+
+
+2008-02-24T16:10:41.000000Z
+404f9c380cf416872cd35297dc8d10ed
+2006-06-07T21:09:36.000000Z
+975
+klacke
+has-props
+
+examples
+dir
+
+install-sh
+file
+
+
+
+
+2008-02-24T16:10:41.000000Z
+9a98c7b799ad906d61a88d52b5790b1c
+2002-11-27T23:24:25.000000Z
+315
+klacke
+has-props
+

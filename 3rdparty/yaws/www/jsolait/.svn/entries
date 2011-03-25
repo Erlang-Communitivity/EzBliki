@@ -1,0 +1,44 @@
+8
+
+dir
+1220
+https://erlyaws.svn.sourceforge.net/svnroot/erlyaws/trunk/yaws/www/jsolait
+https://erlyaws.svn.sourceforge.net/svnroot/erlyaws
+
+
+
+2006-05-30T21:31:48.000000Z
+968
+klacke
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+9fbdc01b-0d2c-0410-bfb7-fb27d70d8b52
+
+jsolait.js
+file
+
+
+
+
+2008-02-24T16:10:38.000000Z
+4f0f9f61b701650c026781584b3b0391
+2006-05-30T21:31:48.000000Z
+968
+klacke
+has-props
+
+lib
+dir
+

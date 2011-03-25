@@ -1,0 +1,263 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svnroot/erlyaws/!svn/ver/1220/trunk/yaws/src
+END
+yaws_cgi.erl
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_cgi.erl
+END
+ymnesia.erl
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/ymnesia.erl
+END
+authmod_gssapi.erl
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/authmod_gssapi.erl
+END
+yaws_config.erl
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/erlyaws/!svn/ver/1218/trunk/yaws/src/yaws_config.erl
+END
+json.erl
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svnroot/erlyaws/!svn/ver/1206/trunk/yaws/src/json.erl
+END
+mime.types
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/erlyaws/!svn/ver/913/trunk/yaws/src/mime.types
+END
+yaws_404.erl
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_404.erl
+END
+yaws_dav.erl
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_dav.erl
+END
+yaws_showarg.erl
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_showarg.erl
+END
+jsonrpc.erl
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/jsonrpc.erl
+END
+yaws_pam.erl
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_pam.erl
+END
+yaws_jsonrpc.erl
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/erlyaws/!svn/ver/1007/trunk/yaws/src/yaws_jsonrpc.erl
+END
+yaws_log.erl
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_log.erl
+END
+yaws_ticker.erl
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_ticker.erl
+END
+haxe.erl
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/haxe.erl
+END
+mime_type_c.erl
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/mime_type_c.erl
+END
+yaws_generated.template
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_generated.template
+END
+yaws_log_file_h.erl
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_log_file_h.erl
+END
+yaws_soap_lib.erl
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_soap_lib.erl
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svnroot/erlyaws/!svn/ver/1207/trunk/yaws/src/Makefile
+END
+yaws_soap_srv.erl
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_soap_srv.erl
+END
+yaws_revproxy.erl
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_revproxy.erl
+END
+yaws_vsn.template
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/erlyaws/!svn/ver/69/trunk/yaws/src/yaws_vsn.template
+END
+yaws_zlib.erl
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_zlib.erl
+END
+yaws_vdir.erl
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_vdir.erl
+END
+yaws.app.src
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/erlyaws/!svn/ver/2/trunk/yaws/src/yaws.app.src
+END
+yaws_html.erl
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_html.erl
+END
+yaws_xmlrpc.erl
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_xmlrpc.erl
+END
+yaws_server.erl
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/erlyaws/!svn/ver/1220/trunk/yaws/src/yaws_server.erl
+END
+yaws_sup.erl
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_sup.erl
+END
+yaws_rss.erl
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_rss.erl
+END
+yaws_api.erl
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_api.erl
+END
+yaws_session_server.erl
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_session_server.erl
+END
+yaws_content_negotiation.erl
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_content_negotiation.erl
+END
+yaws_ls.erl
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_ls.erl
+END
+yaws.erl
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svnroot/erlyaws/!svn/ver/1220/trunk/yaws/src/yaws.erl
+END
+yaws_app.erl
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/erlyaws/!svn/ver/62/trunk/yaws/src/yaws_app.erl
+END
+yaws_ctl.erl
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_ctl.erl
+END
+yaws.conf
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws.conf
+END
+yaws_rpc.erl
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_rpc.erl
+END
+yaws_debug.erl
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_debug.erl
+END
+yaws_compile.erl
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_compile.erl
+END
+yaws_debug.hrl
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/yaws_debug.hrl
+END

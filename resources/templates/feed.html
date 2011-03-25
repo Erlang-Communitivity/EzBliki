@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<title>{{ feed.title }}</title>
+	<style type="text/css" media="screen">@import "/css/layout3.css";</style>
+	    <script type="text/javascript" src="/js/preview.js"></script>
+<script type="text/javascript">
+
+
+function doRender() {
+	{% for entry in entries %}
+   		$("Html_{{ entry.id }}").innerHTML = toXHTML($("Text_{{ entry.id }}").value);
+	{% endfor %}
+}	
+
+window.onload = doRender;
+
+</script>
+  </head>
+
+<body>
+
+{% for entry in entries %}
+
+<div class="content" id="{{ entry.id }}" name="{{ entry.id }}">
+	<h2 class="title"><a href="/about/{{ entry.id }}">{{ entry.title }}</a></h2>
+	<div class="published">
+					Published: {{ entry.published }} 
+					{% if entry.updated %}
+						, Last modified: {{ entry.updated }}
+					{% endif %}		
+	</div>
+	<div name="Html_{{ entry.id }}" id="Html_{{ entry.id }}">Javascript is disabled</div>
+	<form method="post" style="display: none;" action="javascript:void();" id="form1">
+	<textarea style="display: none;" id="Text_{{ entry.id }}" name="Text_{{ entry.id }}" rows="20" cols="50">{% if entry.summary %}{{  entry.summary }}{% endif %}</textarea>
+	</form>
+<div class="cut"><strong><a href="/about/{{ entry.id }}">Read more...</a></strong></div>
+<div class="sociable">
+<!-- this is a social bookmarking HTML snippet common across the web, original author unknown -->
+<span class="sociable_tagline">
+<strong>Share and Enjoy:</strong>
+	<span>These icons link to social bookmarking sites where readers can share and discover new web pages.</span>
+</span>
+<ul>
+<li><a rel="nofollow" target="_blank" href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fblog.communitivity.com" title="StumbleUpon"><img src="/image/stumbleupon.png" title="StumbleUpon" alt="StumbleUpon" class="sociable-hovers"></a></li>
+	<li><a rel="nofollow" target="_blank" href="http://digg.com/submit?phase=2&amp;url=http%3A%2F%2Fblog.communitivity.com" title="Digg"><img src="/image/digg.png" title="Digg" alt="Digg" class="sociable-hovers"></a></li>
+	<li><a rel="nofollow" target="_blank" href="http://del.icio.us/post?url=http%3A%2F%2Fblog.communitivity.com" title="del.icio.us"><img src="/image/delicious.png" title="del.icio.us" alt="del.icio.us" class="sociable-hovers"></a></li>
+	<li><a rel="nofollow" target="_blank" href="http://technorati.com/faves?add=http%3A%2F%2Fblog.communitivity.com" title="Technorati"><img src="/image/technorati.png" title="Technorati" alt="Technorati" class="sociable-hovers"></a></li>
+	<li><a rel="nofollow" target="_blank" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fblog.communitivity.com" title="Facebook"><img src="/image/facebook.png" title="Facebook" alt="Facebook" class="sociable-hovers"></a></li>
+	<li><a rel="nofollow" target="_blank" href="https://favorites.live.com/quickadd.aspx?marklet=1&amp;url=http%3A%2F%2Fblog.communitivity.com" title="Live"><img src="/image/live.png" title="Live" alt="Live" class="sociable-hovers"></a></li>
+	<li><a rel="nofollow" target="_blank" href="http://www.mixx.com/submit?page_url=http%3A%2F%2Fblog.communitivity.com" title="Mixx"><img src="/image/mixx.png" title="Mixx" alt="Mixx" class="sociable-hovers"></a></li>
+	<li><a rel="nofollow" target="_blank" href="http://www.google.com/bookmarks/mark?op=edit&amp;bkmk=http%3A%2F%2Fblog.communitivity.com" title="Google"><img src="/image/googlebookmark.png" title="Google" alt="Google" class="sociable-hovers"></a></li>
+</ul>
+</div>
+<div class="comments">
+	<span>0 <a href="" title="">Comments</a></span>
+</div>
+<div class="tags">
+	<span>Filed under: <a href="" title="">Tag1</a>, <a href="" title="">Tag2</a></span>
+</div>
+<div style="clear: left"></div>
+</div>
+{% endfor %}
+
+<div id="ft" style="position: absolute; left:25%; bottom: .5em; align: center;">
+    <center><span>Copyright &copy; Communitivity Inc. All rights reserved.</span><br />
+    <a href="/about/Privacy_Policy">Privacy Policy</a> - 
+       <a href="/about/Terms_of_Service">Terms of Service</a> - 
+       <a href="/about/Copyright_Policy">Copyright Policy</a> - 
+       <a href="/about/Job_Openings">Job Openings</a>
+	</center>
+</div>
+
+<div id="navAlpha">
+	<h2>Links</h2>
+
+	<p>
+		<a href="/about/Replace_With_Your_Title">Create new entry</a>
+	</p>
+</div>
+
+<div id="navBeta">
+	<p>
+		{% if openid_identifier %}
+		<form name="openid_login" action="/logout/" method="post">
+			OpenId: {{ openid_identifier }} 
+			<INPUT type="hidden" name="return_to" value="{{ this_url }}" />
+			<!-- TODO Logout is not working, seems to be hanging as if it's trying to talk to session process -->
+			<INPUT type="submit" name="mysubmit" value="Logout" />
+		<!-- -->
+		</form>
+		{% else %}
+        <h3>Login</h3>
+		<form name="openid_login" action="/login/" method="post">
+			OpenId: <input type="text" name="openid_identifier" />
+			<INPUT type="hidden" name="return_to" value="{{ this_url }}" />
+			<INPUT type="submit" name="mysubmit" value="Login" />
+		</form>
+		{% endif %}
+	</p>
+</div>
+
+</body>
+</html>

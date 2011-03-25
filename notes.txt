@@ -1,0 +1,549 @@
+=30 mar
+.. To do today:
+	.x. Ability to edit an exiting page, with live preview
+	.x. remove non-wikicreole entries from bliki.tools:get_entries
+	.x. Add support for redirects in main appmod
+	.x. Need to modify routes:module_for_route to take {ParsedRoute, Bindings} and return same format
+	.x. Need to have ParsedRoute returned by model be the one used in rendering stage
+	.x. Need to modify all current model funcs to new format
+	.x. Ability to add a new page
+		.x. Need to modify  view page case where page not found so that the returned
+			ParsedRoute has no_render = true
+	.. 3 col layout on all pages
+	.. Openid authentication
+.. Compromises today:
+	.. All entry content is stored as wikicreole
+	.. No error path logic in OpenID auth. It fails-> it crashes.
+	.. For now, links to non-existent wiki pages are not colored differently
+	.. past_time would be nice on entries, see tools:past_time, but for now it's low priority
+	
+=25 mar
+.. local plugins as processes
+	pid and supported methods for each stored as atom entry in atom collection 'local_plugins
+	along with plugin id and any other plugin metadata, including a text/html description of
+	the plugin
+.. Need to switch to JQuery and to using http://www.fyneworks.com/jquery/FCKEditor/
+.. info_msg controlled debug facility works great, except that it isnt process safe, which means it's
+basically useless within erlang. It's a good idea, but needs to be implemented as either a custom error_logger or a a replacement
+=24 mar
+Before class tomorrow:
+.. Be able to post an entry
+.. Be able to view an entry
+
+So demo will be to:
+. Show list of all entries by browsing to /
+. Narrow it to entries in 2008/02
+. Explain routing mechanism and attribute options
+. Show sample code of Routes definition
+. Post a new entry using HTML content
+. View that entry
+. Features to be added between now and final presentation
+	. Finish OpenID authentication
+	. Editing entries, including adding pages via wikitext
+	. Posting/Editing via Atom Publishing Protocol
+	. Finish extension point mechanism with a two part
+	 	. a content-extension that shows a random click-to-donate charity blurb and link
+		. a rendering extension plugin that provides an entry pre-processor that converts 		
+			text/wikicreole to text/html (inside the body so it's embeddable)
+	. Nicer UI using Yahoo!'s OPen Source library YUI
+	
+=23 mar
+.x. Updated to new CSS, fluid-fixed layout
+.x. Got data displaying on edit page
+.. Need a way to get static content through routing
+	/{type}/{file}  , with type one of image, js, or css
+	also /favicon.ico
+	very useful page == http://yaws.hyber.org/yman.yaws?page=yaws_api
+	or maybe not, statics apparently should be served via a CDN or lighthttpd..
+	Problem is that js requires same domain.
+	Maybe use something like this:
+	view_static(ParsedRoute, Options) ->
+		FileName = proplists:get_value(file, Options),
+		FileType = proplists:get_value(type, Options),
+		Theme = proplists:get_value(theme, Options),
+		allowed_types = ["image","css", "js"]
+		{ok, Rest} = file:read_file(FileType ++ "/" ++ FileName),
+		{content, yaws_api:mime_type(FileName), Content}
+	Need to update main handler to recognize content return type
+	
+.. Need to add a mode=update | create field
+.. Need to replace table with Extjs form
+Entry page for entry with slug "A Foo bar" is /about/A_Foo_bar
+Ok need to re-prioritize:
+.x. Get view_day to only show blog entries from specified day
+.x. Get view_month to only show blog entries from specified month
+.x. Get view_month to only show blog entries from specified month
+.. Enable adding a new entry, with wikicreole text for content (not summary yet)
+	.. What fields are a bare minimum?
+		.. title
+		.. id
+		.. published (for now the hour, min, second, and TZ will be fixed to zero and EST respect.)
+		.. summary
+		.. content
+		
+.. Make sure view_entry works
+	.. add view_entry model func that returns model containing entry properties
+	.. add resources/templates/entry.html template
+	.. test, debug, rinse, & repeat until working
+	.. url of entry should be /about/SLUG_GOES_HERE
+.. Enable translation for view entry of wiki entry content to text/html
+.. Hook up wiki pages (including blog entries, using entry slug)under /about/
+.. Get widget plugin working (needs to be a separate node that registers itself with
+	this one
+	). Use tag cloud that is in sidebar as example widget functionality
+.. Pretty up HTML in templates
+
+
+=22 mar
+
+So what next for tuesday's demo?
+.. Need OpenID authentication
+.. Get view_day to only show blog entries from specified day
+.. Get view_month to only show blog entries from specified month
+.. Make sure view_entry works
+.. Get APP support in there
+.. Get widget plugin working (needs to be a separate node that registers itself with
+	this one
+	). Use tag cloud that is in sidebar as example widget functionality
+.. Pretty up HTML in templates
+
+---
+.i. Runs if you do..
+	sudo gem install ape
+	ape_server
+	surf to http://localhost:4000
+.i. From SVN it breaks on a missing .ape file
+	I was able to do the following:
+
+	  svn checkout http://ape.rubyforge.org/svn/trunk .
+	  sudo gem install echoe builder erubis mongrel
+	  rake manifest
+	  rake
+
+	And got to the point of running tests, unfortunately it seems to be missing a .ape file that it expects to find at /Users/david/.ape rather than /User/:username/.ape. Any ideas on where to find this file?
+
+	Output from tests run:
+
+	Signal:ape wolf$ rake
+	(in /Users/wolf/Projects/bliki/3rdparty/ape)
+	/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby -Ilib:ext:bin:test "/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rake-0.7.3/lib/rake/rake_test_loader.rb" "test/unit/authent_test.rb" "test/unit/invoker_test.rb" "test/unit/samples_test.rb" 
+	Loaded suite /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rake-0.7.3/lib/rake/rake_test_loader
+	Started
+	.....F......
+	Finished in 0.025008 seconds.
+
+	  1) Failure:
+	test_ape_home(SamplesTest) [./test/unit/samples_test.rb:7]:
+	<"/Users/david/.ape"> expected but was
+	<"/Users/wolf/.ape">.
+
+	12 tests, 16 assertions, 1 failures, 0 errors
+	rake aborted!
+	Command failed with status (1): [/System/Library/Frameworks/Ruby.framework/...]
+
+
+.. Better yet, use th eruby version http://intertwingly.net/blog/2008/02/28/Migratory-Ape
+.. Client is an exe though, so use http://www.tbray.org/ape/ to test it
+.. Good atompub client and resources at http://www.witha.jp/eXeries/software/
+.. Instead we should use atompub, looks like
+<?xml version="1.0" encoding="utf-8"?>
+<service xmlns="http://www.w3.org/2007/app">
+  <workspace>
+    <atom:title xmlns:atom="http://www.w3.org/2005/Atom">My Blog</atom:title>
+    <collection href="http://teahut.sakura.ne.jp:3000/entrycollection">
+      <atom:title xmlns:atom="http://www.w3.org/2005/Atom">Diary</atom:title>
+      <categories fixed="yes" scheme="http://example.com/cats/big3">
+        <category xmlns="http://www.w3.org/2005/Atom" term="animal" label="animal"/>
+        <category xmlns="http://www.w3.org/2005/Atom" term="vegetable" label="vegetable"/>
+        <category xmlns="http://www.w3.org/2005/Atom" term="mineral" scheme="http://example.com/dogs/big3" label="mineral"/>
+      </categories>
+    </collection>
+    <collection href="http://teahut.sakura.ne.jp:3000/mediacollection">
+      <atom:title xmlns:atom="http://www.w3.org/2005/Atom">Photo</atom:title>
+      <accept>image/png</accept>
+      <accept>image/jpeg</accept>
+      <accept>image/gif</accept>
+    </collection>
+  </workspace>
+</service>
+.NO. checkout http://en.wikipedia.org/wiki/Really_Simple_Discovery , need to add this
+.NO. Example RSD.xml from: http://blogs.law.harvard.edu/doc/xmlrpc.php?rsd
+<?xml version="1.0" encoding="UTF-8"?><rsd version="1.0" xmlns="http://archipelago.phrasewise.com/rsd">
+  <service>
+    <engineName>WordPress</engineName>
+    <engineLink>http://wordpress.org/</engineLink>
+    <homePageLink>http://blogs.law.harvard.edu/doc</homePageLink>
+    <apis>
+      <api name="WordPress" blogID="1" preferred="false" apiLink="http://blogs.law.harvard.edu/doc/xmlrpc.php" />
+      <api name="Movable Type" blogID="1" preferred="true" apiLink="http://blogs.law.harvard.edu/doc/xmlrpc.php" />
+      <api name="MetaWeblog" blogID="1" preferred="false" apiLink="http://blogs.law.harvard.edu/doc/xmlrpc.php" />
+      <api name="Blogger" blogID="1" preferred="false" apiLink="http://blogs.law.harvard.edu/doc/xmlrpc.php" />
+    </apis>
+  </service>
+</rsd>
+.x. to fix model I split it to have feed and entries vars, best we can do for now
+.x. Need to fix view_day model, it's returning (see above)
+[{feed,
+      {ok,
+      	{entry_collection,
+      		[
+				{title,"Prag Dave"},
+      			{link, [{rel,"self"},
+				...
+.. Need to commit everything and tag 'working-full routes'
+
+=21 mar
+.x. Need to do following in bliki.model.feed:view_day
+	.. get collection id from ParsedRoute var bindings
+	.. return [{feed, atom:get_collection(Id)}]
+.x. Need to add bliki.testdata module, with funcs from test/test_data.erl to populate svr
+.. Need to fix view_day model, it's returning
+[{feed,
+      {ok,
+      	{entry_collection,
+      		[
+				{title,"Prag Dave"},
+      			{link, [{rel,"self"},
+				...
+
+=20 mar
+.. Got reorg working, now trying to finalize templating and route system
+.. Need to add support for bliki.model.* in build script
+.. Need to add bliki.testdata module, with funcs from test/test_data.erl to populate svr
+.. Need to do following in bliki.model.feed:view_day
+	.. get collection id from ParsedRoute var bindings
+	.. return [{feed, atom:get_collection(Id)}]
+.. Also ned to update hg repo, and commit&tag
+
+=19 mar
+TODO:
+.. Changed -module attributes to account for nested modules, now need to add
+   import statements to do same. For example wherever atom: exists there needs to
+   be an -import(bliki.app.atom.atom).
+.. Also wherever top level packages are called you need an import
+   for them as well (e.g. -import(lists) )
+
+Notes:
+.. see http://www.erlang.se/publications/packages.html
+.. Make datastore backend a module rather than a gen server for right now
+.. Need to look up again how to populate with test data
+.. Maybe backend should be more abstract
+	.. Write operations
+		.. begin(contextXri)
+		.. create_resource(xri)
+		.. create_property(xri)
+		.. bind_resource(resourceXri, propertyXri, objectXri)
+		.. bind_value(resourceXri, propertyXri, valueLiteral)
+		.. commit
+		.. rollback
+	.. Read operations (basically same as SPARQL)
+		.. describe(non-context-xri)
+		.. resources_in(contextXri)
+		.. properties_in(contextXri)
+		.. graph_rooted_at(contextXri)
+		.. ask(xri,..) Note that we have a nice feature if we view 
+					   an xri of the form a//b as answering true 
+					   iff ask(a) and ask(b) both answer true, and
+					    a,b args answering true if either ask(a) or
+					 	ask(b) answer true
+					
+.. Above would be ideal, but overly complex for now, the above could be another backend impl, have backed be simple for now.
+.. See http://www.trapexit.org/Defining_Your_Own_Behaviour for a quick howto on defining
+custom behaviours
+
+=18 mar
+Todo:
+.. Abstract out datastore backend
+	entry_by_id
+	collection_by_id
+	update_collection
+	update_entry
+.. Create DETS version of above
+.. Make which module used an env prop, application:get_env(atom_store_backend)
+
+
+Done:
+.. Got routes working it seems, but some changes needed.
+.. Routes.erl then has no couples  to ErlyDTL, and only a few to HTML/YAWS
+.. Appmod just acts to hook together pieces, calling dispatch with
+   appropriate args
+
+.. Fisrt, what we want to accomplish for demo as user stories
+== S1
+User navigates to main page of blog from external link without logging in via OpenId and sees the list of blog entries summaries in the main column of the page. Each summary has the title, who posted it, the summary, when it was posted, and a link to see the full article.  In sidebar user sees a form for OpenID login; a 'best of' list of the top 5 most read, or most preferred by author;  a tag cloud; and a calendar for entry archives; and a search box.
+== S2
+User navigates to main page of blog from external link after logging in elsewhere with OpenId. In addition to what they see in unauthenticated use case they see a menu bar at the bottom of the header with the following items: Home, Post, Add, Edit, Activity, Preferences. These items represent, respectively: a user-customized home portal page; a page to post a new blog entry; a page to add a new wiki page that isn't a blog entry; a page to list all the user's adds, posts, and comments, and allow editing of them; a page to list activity that the user is tracking (by default it's comments on their posts); and a page to set user preferences.
+== S3
+Authenticated user navigates to post page. They see a form containing the following fields: Date of post (prefilled with current date); time of post (prefilled); title, summary, entry, tags.  3 bottons follow the form: publish, preview, cancel. The user enters the entry text in wikicreole format and clicks preview to see how the post would look. The user then clicks publish making the post available.
+== S4
+User does search of ETS, finds 1 page about ETS internals. Content publisher with prearranged relationship (i.e. exchanged security tokens) publishes new wiki content that represents a wiki view of management information about an erlang node (node name, processes, ets tables). User does search again and finds new content listed in search along side previously found content.
+== S5
+While viewing a full entry the authenticated user decide to review comments at bottom of page and find one they wish to respond to.
+
+Ok, so decomposing S1 into tier 1 and 2 backlog items we get
+.. main page
+	.. show list of item summaries
+	.. add title field displayed with each
+	.. add author field displayed with each
+	.. add date posted with each (and time)
+	.. add link to see full article
+	.. show main page as two columns, content in larger, sidebar in smaller
+	.. OpenID login in sidebar
+	.. a 'best of' list of the top 5 most read, or most preferred by author in sidebar
+	.. a tag cloud in sidebar
+	.. a calendar for entry archives in sidebar
+	.. a search box in sidebar
+.. article display page
+	.. show same fields as an item on main page, but instead of summary show full entry
+ 
+=3 mar
+Goals:
+	.. Post new blog entry
+	.. edit existing one
+	.. Wiki text in entries expanded per WikiCreole
+	.. Create new wiki page by clicking on wiki link for non-existing one
+	.. Edit wiki page
+
+=26 feb
+Status:
+	Progress:
+		Erlang/Yaws adaptation of Rails Routes working, with extras
+		Yaws now running embedded, started automatically with main app
+		Template system fully functioning
+		Two templates written (Feed display and Entry edit)
+		Started work on OpenId authentication implementation
+	Planned:
+		Complete OpenId authentication impl (XRIs only for now, HTTP ids later)
+		Add support in route dispatch for requiring authentication based
+			on route options property list having flag require_authenticated
+		2nd Demo
+	Release critical path:
+		Rudimentary access control framework tied into to route dispatch
+		Theme support, with two example themes (one the default theme)
+		
+Working more on routes
+Route parsing is now working, so routes are basically working..
+Todo on Routes:
+.. variable expansion of option values before dispatch
+.. condensation of variable bindings
+	.. Given a binding like [{day,"12"},{month,"02"},{year,"2008"}]
+	.. and record name of record -record(date,{day,month,year})
+	.. we want to be able to 
+		.. specify a record
+		.. add varbinding with val that's instance of record from 
+			vals of props matching field names
+		.. remove props with vals matching field names
+.. dispatch
+
+Once routes are done for each route in conf we need to
+	.. implement callback module
+	.. create associated template, if not already created
+
+Once that's done we need to add authentication using OpenId
+
+=24 feb
+
+Routes...
+1. Split around /
+2. Put results into a list of segments
+3. Route is list of sugsegment patterns
+	{name:regex} or xxxx
+	
+
+Need to figure out core URLS
+/index => redirect to /CurrYear/CurrMonth/CurrDay
+/tag/XXX/index => temp:tagged.html, CollectionId:tag_XXX
+/NNNN/MM/DD => temp:feed.html, CollectionId:main
+/about => temp:about.html
+/admin/entries/add - Add a new entry
+/admin/entries/{entryId}/edit -> Edit specific entry
+/admin/entries/index - Manage entries
+
+Other urls will be needed, but the above let us have a working blog
+
+Becomes
+[""] -redirect
+["index"]
+["tag", "{tag:[a-z][0-9a-zA-Z_]*}", ""] -redirect
+["tag", "{tag:[a-z][0-9a-zA-Z_]*}", "index"]
+["{year:[0-9][0-9][0-9][0-9]}","{year:[0-1][0-9]}","{day:[0-3][0-9]}"] -> redirect
+["{year:[0-9][0-9][0-9][0-9]}","{year:[0-1][0-9]}","{day:[0-3][0-9]}","index"]
+
+So given PatternList,SegmentList and lengths are equal (if not we know no match)
+we can do List = lists:zip(PatternList, SegmentList)
+
+extract([{Expected, Actual}|T], Result) ->
+	case match(Expected, Actual) of
+		{nomatch} -> {nomatch};
+		{match, VarList} -> extract(T, lists:merge(VarList, Result))
+	end.
+	
+extract([], Result) ->
+	{match, Result};
+
+% Two cases initially:
+%	Expected begins with { so is var
+% 	Expected doesn't so it's static
+match([${ | Rest}], Actual)
+match(Expected, Actual) ->
+	
+=19 feb
+{% for entry in entries %}
+	<hr />
+	<div class="entry">
+		<a class="title" href="{{ entry.link }}">{{ entry.title }}</a>
+		<div class="updated">{{ entry.updated }}</div>
+		<div class="content">{{ entry.contentText }}</div>
+	</div>
+{% endfor %}
+
+=17 feb
+==todo
+So we have a rudimentary atom server, but we can only run one at a time, and we have no way to discover
+others.
+
+Way #1
+	.. global name from app env, must start with discoverable (e.g. discoverable_atom_store1)
+	.. Discovery by getting global names and filtering to discoverable_, then sending
+		{discovery, request} and waiting for {discovery, response, ok, [DiscoveredItems]}
+		
+== starting demo
+Start gog in one dos box with K:\bliki>build && erl -v -pa ./ebin -sname gog -setcookie sesame
+Start magog in 2nd dos box with K:\bliki>build && erl -v -pa ./ebin -sname magog -setcookie sesame
+Remember to use net_adm:world() to make sure you see both gog and magog from shell in both dos boxes
+So in gog
+K:\bliki>build && erl -v -pa ./ebin -sname gog -setcookie sesame
+(gog@SIGNAL)1> application:start(atom_app).
+(gog@SIGNAL)1> net_adm:world().
+
+Then in magog
+K:\bliki>erl -v -pa ./ebin -sname magog -setcookie sesame
+(magog@SIGNAL)7> net_adm:world().
+(magog@SIGNAL)7> test_atom_svr:start().
+
+You should see 
+        --- Feed ---
+{ok,{entry_collection,[{id,'urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6'},
+                       {title,"Example Feed"},
+                       {link,"http://example.org/"},
+                       {author,[{name,"John Doe"}]},
+                       {entry,{id,'urn:uuid:1225c695-cfb8-4ebb-aaa-80da344efa6a'}},
+                       {entry,{id,'urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a'}}]}}
+
+        --- Entries ---
+{ok,[{entry,[{id,'urn:uuid:1225c695-cfb8-4ebb-aaa-80da344efa6a'},
+             {title,"RSS Powered Robots Run Amok"},
+             {link,"http://example.org/2003/12/13/atom03"},
+             {updated,"2003-12-13T18:30:02Z"},
+             {summary,"Some text"},
+             {content,[{type,"text/wikicreole"},
+                       {text,"//italics// \\\r\n **bold** \\\r\n"}]}]},
+     {entry,[{id,'urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a'},
+             {title,"Atom-Powered Robots Run"},
+             {link,"http://example.org/2003/12/13/atom03"},
+             {updated,"2003-12-13T18:30:02Z"},
+             {summary,"Some text"},
+             {content,[{type,"text/wikicreole"},
+                       {text,"**A bold example**"}]}]}]}
+=older
+
+Two tables: feeds and entries
+Example Atom feed with one entry:
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>Example Feed</title> 
+  <link href="http://example.org/"/>
+  <updated>2003-12-13T18:30:02Z</updated>
+  <author> 
+    <name>John Doe</name>
+  </author> 
+  <id>urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6</id>
+
+
+</feed>
+
+
+  <entry>
+    <title>Atom-Powered Robots Run Amok</title>
+    <link href="http://example.org/2003/12/13/atom03"/>
+    <id>urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a</id>
+    <updated>2003-12-13T18:30:02Z</updated>
+    <summary>Some text.</summary>
+  </entry>This translates into the following 
+build_feeds() -> 
+	Feeds =	ets:new("urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6", [public, set]),
+	Entries = ets:new("urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a", [public, set]),
+	ets:insert(Feeds, {"",
+		{feed, [
+			{id, "urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6"},
+			{title, "Example Feed"},
+			{link, "http://example.org/"},
+			{updated, "2003-12-13T18:30:02Z"},
+			{author, [{name,"John Doe"}]},
+			{entry, {id, "urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a"}}
+	]}}),
+	ets:insert(Entries, {"urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a",
+		{entry, [
+			{title, "Atom-Powered Robots Run Amok"},
+			{link, "http://example.org/2003/12/13/atom03" },
+			{id, "urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a"},
+			{updated, "2003-12-13T18:30:02Z"},
+			{summary, "Some text"},
+			{content, [{type, "text/wikicreole"}],
+"{{{//italics//} -> //italics// \\
+{{{**bold**}}} -> **bold** \\
+"}
+	]}}),
+	{Feeds, Entries}.
+
+Note that an element with attrs, say title, would then become
+{title, [{type, "text"}], "titletext" }
+
+If like author element has sub elements this becomes
+{author, [{name, ""}, {uri, ""}]}
+
+IF attr and child els,
+{author, [], [{name, ""}, {uri, ""}]}
+
+
+Our API needs to have the following functions:
+.. create entry
+.. update entry
+.. delete entry
+.. get feed
+.. create feed
+
+Initially we'll only support a single collection
+One set of two dets files represents a collection {Feeds, Entries}
+
+Rendering pipeline ->
+	get Entries
+	Convert entries with contentType text/wikicreole to contentType xhtml
+	Render feed template with {entries, Entries}
+
+The wiki markup we initally need to support from creole is:
+	paragraphs [done]
+	bold [done, except for error cases]
+	italics [done, except for error cases]
+	line breaks [done]
+	headings
+	links
+	
+lists would be nice but it can go up without them
+Ditto for images and nowiki
+
+Left for last are tables, extension elements (placeholders, plugins)
+
+We need to deal with order of nesting. May need to change flags code to stack code:
+
+Next** => Change code to use stack for nestable tokens (ones that have start and stop)
+use lists:member(elem, list) to see if it's in list and last(list) to get 
+top of stack, 
+can use lists:delete(elem, list) since wont be two of any one elem on list
+
+if you get 'bold' and 'bold' is already in list, then 'bold' best be the last
+item in list. If it is we can delete 'bold' from list and emit {bold, false} (we emitted {bold, true} when we pushed it onto stack. If it's in list but
+not last item then we throw an error.
+
+	

@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>Bliki, a Blog and and Wiki: 'Editing {{ entry.title }}'</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    	<link rel="stylesheet" type="text/css" href="/yui/assets/yui.css" >
+
+<style>
+/*Supplemental CSS for the YUI distribution*/
+#custom-doc { width: 95%; min-width: 950px; }
+#pagetitle {background-image: url(/yui/assets/bg_hd.gif);}
+#pagetitle h1 {background-image: url(/yui/assets/title_h_bg.gif);}
+
+</style>
+
+<link rel="stylesheet" type="text/css" href="/yui/assets/dpSyntaxHighlighter.css">
+<!--Script and CSS includes for YUI dependencies on this page-->
+<link rel="stylesheet" type="text/css" href="/yui/build/menu/assets/skins/sam/menu.css" />
+<link rel="stylesheet" type="text/css" href="/yui/build/button/assets/skins/sam/button.css" />
+<link rel="stylesheet" type="text/css" href="/yui/build/container/assets/skins/sam/container.css" />
+<link rel="stylesheet" type="text/css" href="/yui/build/editor/assets/skins/sam/editor.css" />
+<script type="text/javascript" src="/yui/build/yahoo/yahoo-min.js"></script>
+<script type="text/javascript" src="/yui/build/event/event-min.js"></script>
+<script type="text/javascript" src="/yui/build/dom/dom-min.js"></script>
+<script type="text/javascript" src="/yui/build/animation/animation-min.js"></script>
+<script type="text/javascript" src="/yui/build/element/element-beta-min.js"></script>
+<script type="text/javascript" src="/yui/build/container/container-min.js"></script>
+<script type="text/javascript" src="/yui/build/menu/menu-min.js"></script>
+<script type="text/javascript" src="/yui/build/button/button-min.js"></script>
+<script type="text/javascript" src="/yui/build/editor/editor-beta-min.js"></script>
+
+<!--there is no custom header content for this example-->
+
+
+</head>
+<body id="yahoo-com" class="yui-skin-sam">
+<div id="custom-doc" class="yui-t2">
+<div id="hd">
+	<div id="ygunav">
+		<p><em>
+			<a href="/">Home</a> <i> - </i>	
+			<a href="/about/help">Help</a>
+			</em>
+		</p>
+		<form action="/login"><label for="ygsp">OpenId:</label> 
+		<input id="openid_identifer" name="openid_identifier" size="22"> 
+		<input type="submit" value="Login" class="ygbt"></form>
+
+		<form action="/opensearch"><label for="ygsp">Search</label> 
+		<input id="ygsp" name="q" size="22"> 
+		<input type="submit" value="Search" class="ygbt"></form>
+	</div>
+<!--	<div id="ygma"><a href="../../"><img src="/yui/assets/yui.gif"  border="0" width="378" height="28"></a></div>
+-->	<div id="pagetitle"><h1>Bliki, a Blog and and Wiki: 'Editing {{ entry.title }}'</h1></div>
+</div>
+<div id="bd">
+	<div id="yui-main">
+		<div class="yui-b">
+		  <div class="yui-ge">
+			  <div class="yui-u first example">
+	
+<!--	<div class="promo"> -->
+	<div class="example-container module ">
+			<div id="example-canvas" class="bd">
+<style>
+    .yui-skin-sam .yui-toolbar-container .yui-toolbar-editcode span.yui-toolbar-icon {
+        background-image: url( assets/html_editor.gif );
+        background-position: 0 1px;
+        left: 5px;
+    }
+    .yui-skin-sam .yui-toolbar-container .yui-button-editcode-selected span.yui-toolbar-icon {
+        background-image: url( assets/html_editor.gif );
+        background-position: 0 1px;
+        left: 5px;
+    }
+    .editor-hidden {
+        visibility: hidden;
+        top: -9999px;
+        left: -9999px;
+        position: absolute;
+    }
+    textarea {
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<form method="post" action="#" id="form1">
+<p><label>Title: 
+	<input type="text" name="title" size="40" maxlength="60" value="{{ entry.title }}">
+	</label></p>
+<p><label>Published: 
+	<input type="text" name="published" size="40" maxlength="60" value="{{ entry.published }}">
+	</label></p>
+<p><label>Summary: 
+	<textarea name="summary" rows="5" cols="75">{{ entry.summary }}</textarea>
+	</label></p>
+<p><label>Content: 
+<textarea id="editor" name="editor" rows="20" cols="75">
+	{% if entry.content.text.html.en_us %}
+		{{ entry.content.text.html.en_us }}
+	{% endif %}
+	{% if entry.content.text.wikicreole.en_us %}
+		{{ entry.content.text.wikicreole.en_us }}
+	{% endif %}
+</textarea>
+	</label></p>
+<p><input type="submit" name="update" value="Update" /><input type="submit" name="cancel" value="Cancel" /></p>
+
+</form>
+
+<script>
+
+(function() {
+    var Dom = YAHOO.util.Dom,
+        Event = YAHOO.util.Event;
+    
+    var myConfig = {
+        height: '300px',
+        width: '530px',
+        animate: true,
+        dompath: true,
+        focusAtStart: true
+    };
+
+    var state = 'off';
+    YAHOO.log('Set state to off..', 'info', 'example');
+
+    YAHOO.log('Create the Editor..', 'info', 'example');
+    var myEditor = new YAHOO.widget.Editor('editor', myConfig);
+    myEditor.on('toolbarLoaded', function() {
+        var codeConfig = {
+            type: 'push', label: 'Edit HTML Code', value: 'editcode'
+        };
+        YAHOO.log('Create the (editcode) Button', 'info', 'example');
+        this.toolbar.addButtonToGroup(codeConfig, 'insertitem');
+        
+        this.toolbar.on('editcodeClick', function() {
+            var ta = this.get('element'),
+                iframe = this.get('iframe').get('element');
+
+            if (state == 'on') {
+                state = 'off';
+                this.toolbar.set('disabled', false);
+                YAHOO.log('Show the Editor', 'info', 'example');
+                YAHOO.log('Inject the HTML from the textarea into the editor', 'info', 'example');
+                this.setEditorHTML(ta.value);
+                if (!this.browser.ie) {
+                    this._setDesignMode('on');
+                }
+
+                Dom.removeClass(iframe, 'editor-hidden');
+                Dom.addClass(ta, 'editor-hidden');
+                this.show();
+                this._focusWindow();
+            } else {
+                state = 'on';
+                YAHOO.log('Show the Code Editor', 'info', 'example');
+                this.cleanHTML();
+                YAHOO.log('Save the Editors HTML', 'info', 'example');
+                Dom.addClass(iframe, 'editor-hidden');
+                Dom.removeClass(ta, 'editor-hidden');
+                this.toolbar.set('disabled', true);
+                this.toolbar.getButtonByValue('editcode').set('disabled', false);
+                this.toolbar.selectButton('editcode');
+                this.dompath.innerHTML = 'Editing HTML Code';
+                this.hide();
+            }
+            return false;
+        }, this, true);
+
+        this.on('cleanHTML', function(ev) {
+            YAHOO.log('cleanHTML callback fired..', 'info', 'example');
+            this.get('element').value = ev.html;
+        }, this, true);
+        
+        this.on('afterRender', function() {
+            var wrapper = this.get('editor_wrapper');
+            wrapper.appendChild(this.get('element'));
+            this.setStyle('width', '100%');
+            this.setStyle('height', '100%');
+            this.setStyle('visibility', '');
+            this.setStyle('top', '');
+            this.setStyle('left', '');
+            this.setStyle('position', '');
+
+            this.addClass('editor-hidden');
+        }, this, true);
+    }, myEditor, true);
+    myEditor.render();
+
+})();
+</script>
+	</div>			
+</div>
+</div>
+				<div class="yui-u">
+						<div id="loggerModule" class="yui-skin-sam">
+						<h3 class="firstContent">Logger Output:</h3>
+								<div id="loggerGloss"><p><strong>Note:</strong> Logging and debugging is currently turned off for this example.</p> 
+							<p class="loggerButton"><span id="loggerLink"><span class="first-child"><a href="code_editor_log.html">Reload with logging<br />
+	 and debugging enabled.</a></span></span></p></div>
+						</div>
+				
+					<div id="module">
+						<h3>A Plugin :</h3>
+						<ul>
+							<li><a href="http://developer.yahoo.com/yui/editor/">Abc</a></li>
+							<li><a href="../../docs/module_editor.html">Def</a></li>
+							<li><a href="../../docs/module_editor.html">Ghi</a></li>
+						</ul>
+					</div>
+					<div id="module">
+						<h3>Another Plugin :</h3>
+							<li><a href="http://developer.yahoo.com/yui/editor/">123</a></li>
+							<li><a href="../../docs/module_editor.html">456</a></li>
+							<li><a href="../../docs/module_editor.html">789</a></li>
+						</ul>
+					</div>
+			  </div>
+		</div>
+		
+		</div>
+	</div>
+
+
+<div class="yui-b" id="tocWrapper">
+<div id="toc">
+	
+<ul>
+<li class="sect first">Links</li>
+<li class="item"><a href="">Home</a></li>
+<li class="item"><a href="">aaaa</a></li>
+<li class="item"><a href="">bbbb</a></li>
+<li class="sect">More Links</li>
+<li class="item"><a href="">dddd</a></li>
+<li class="item"><a href="">eeee</a></li>
+<li class="item"><a href="">ffff</a></li>
+</ul
+</div>
+</div>
+	</div><!--closes bd-->
+	<div id="ft">
+        <p class="first">Copyright &copy; Communitivity Inc. All rights reserved.</p>
+        <p><a href="/about/Privacy_Policy">Privacy Policy</a> - 
+            <a href="/about/Terms_of_Service">Terms of Service</a> - 
+            <a href="/about/Copyright_Policy">Copyright Policy</a> - 
+            <a href="/about/Job_Openings">Job Openings</a></p>
+	</div>
+</div>
+<script src="/yui/assets/dpSyntaxHighlighter.js"></script>
+<script language="javascript"> 
+dp.SyntaxHighlighter.HighlightAll('code'); 
+</script>
+<script src='/yui/assets/YUIexamples.js'></script>
+</body>
+</html>

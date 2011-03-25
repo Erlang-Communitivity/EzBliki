@@ -1,0 +1,43 @@
+8
+
+dir
+15
+http://ape.rubyforge.org/svn/trunk/lib
+http://ape.rubyforge.org/svn
+
+
+
+2008-03-03T08:32:23.299360Z
+15
+calavera
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+d43e647d-18ea-4ebb-b362-cbe88fbed885
+
+ape
+dir
+
+ape.rb
+file
+
+
+
+
+2008-03-22T15:17:45.000000Z
+5c515c040c062aee5b7a4b75483e27ef
+2008-03-02T11:15:37.516903Z
+13
+calavera
+

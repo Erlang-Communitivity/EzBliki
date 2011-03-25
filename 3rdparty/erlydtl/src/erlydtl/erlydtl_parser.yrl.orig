@@ -1,0 +1,169 @@
+%%%-------------------------------------------------------------------
+%%% File:      erlydtl_parser.erl
+%%% @author    Roberto Saccon <rsaccon@gmail.com> [http://rsaccon.com]
+%%% @author    Evan Miller <emmiller@gmail.com>
+%%% @copyright 2008 Roberto Saccon, Evan Miller
+%%% @doc Template language grammar
+%%% @reference  See <a href="http://erlydtl.googlecode.com" target="_top">http://erlydtl.googlecode.com</a> for more information
+%%% @end  
+%%%
+%%% The MIT License
+%%%
+%%% Copyright (c) 2007 Roberto Saccon, Evan Miller
+%%%
+%%% Permission is hereby granted, free of charge, to any person obtaining a copy
+%%% of this software and associated documentation files (the "Software"), to deal
+%%% in the Software without restriction, including without limitation the rights
+%%% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%%% copies of the Software, and to permit persons to whom the Software is
+%%% furnished to do so, subject to the following conditions:
+%%%
+%%% The above copyright notice and this permission notice shall be included in
+%%% all copies or substantial portions of the Software.
+%%%
+%%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%%% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%%% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%%% THE SOFTWARE.
+%%%
+%%% @since 2007-11-11 by Roberto Saccon, Evan Miller
+%%%-------------------------------------------------------------------
+
+Nonterminals
+    Elements
+    Literal
+
+    VariableBraced
+
+    ExtendsTag
+    IncludeTag
+
+    CustomTag
+    Args
+
+    BlockBlock
+    BlockBraced
+    EndBlockBraced
+
+    CommentBlock
+    CommentBraced
+    EndCommentBraced
+
+    ForBlock
+    ForBraced
+    EndForBraced
+    ForExpression
+    ForGroup
+
+    IfBlock
+    IfBraced
+    IfExpression
+    ElseBraced
+    EndIfBraced
+
+    AutoEscapeBlock
+    AutoEscapeBraced
+    EndAutoEscapeBraced
+
+    Variable
+    Filter.
+
+Terminals
+    autoescape_keyword
+    block_keyword
+    close_tag
+    close_var
+    comment_keyword
+    colon
+    comma
+    dot
+    else_keyword
+    endautoescape_keyword
+    endblock_keyword
+    endcomment_keyword
+    endfor_keyword
+    endif_keyword
+    equal
+    extends_keyword
+    for_keyword
+    identifier
+    if_keyword
+    in_keyword
+    include_keyword
+    not_keyword
+    number_literal
+    open_tag
+    open_var
+    pipe
+    string_literal
+    text.
+
+Rootsymbol
+    Elements.
+
+Elements -> '$empty' : [].
+Elements -> Elements text : '$1' ++ ['$2'].
+Elements -> Elements VariableBraced : '$1' ++ ['$2'].
+Elements -> Elements ExtendsTag : '$1' ++ ['$2'].
+Elements -> Elements IncludeTag : '$1' ++ ['$2'].
+Elements -> Elements CustomTag : '$1' ++ ['$2'].
+Elements -> Elements BlockBlock : '$1' ++ ['$2'].
+Elements -> Elements ForBlock : '$1' ++ ['$2'].
+Elements -> Elements IfBlock : '$1' ++ ['$2'].
+Elements -> Elements AutoEscapeBlock : '$1' ++ ['$2'].
+Elements -> Elements CommentBlock : '$1' ++ ['$2'].
+
+VariableBraced -> open_var Variable close_var : '$2'.
+
+Variable -> Variable pipe Filter : {apply_filter, '$1', '$3'}.
+Variable -> identifier : {variable, {'$1'}}.
+Variable -> identifier dot identifier : {variable, {'$1', '$3'}}.
+Variable -> identifier dot identifier dot identifier: {variable, {'$1', '$3', '$5'}}.
+Variable -> string_literal : '$1'.
+Variable -> number_literal : '$1'.
+
+ExtendsTag -> open_tag extends_keyword string_literal close_tag : {extends, '$3'}.
+IncludeTag -> open_tag include_keyword string_literal close_tag : {include, '$3'}.
+
+CustomTag -> open_tag identifier Args close_tag : {tag, '$2', '$3'}.
+
+Args -> '$empty' : [].
+Args -> Args identifier equal Variable : '$1' ++ [{'$2', '$4'}].
+
+BlockBlock -> BlockBraced Elements EndBlockBraced : {block, '$1', '$2'}.
+BlockBraced -> open_tag block_keyword identifier close_tag : '$3'.
+EndBlockBraced -> open_tag endblock_keyword close_tag.
+
+CommentBlock -> CommentBraced Elements EndCommentBraced : {comment, '$2'}.
+CommentBraced -> open_tag comment_keyword close_tag.
+EndCommentBraced -> open_tag endcomment_keyword close_tag.
+
+ForBlock -> ForBraced Elements EndForBraced : {for, '$1', '$2'}.
+ForBraced -> open_tag for_keyword ForExpression close_tag : '$3'.
+EndForBraced -> open_tag endfor_keyword close_tag.
+ForExpression -> identifier : '$1'.
+ForExpression -> ForGroup in_keyword identifier : {'in', '$1', '$3'}.
+ForGroup -> identifier : '$1'.
+ForGroup -> ForGroup comma identifier : ['$1', '$3'].
+
+IfBlock -> IfBraced Elements ElseBraced Elements EndIfBraced : {ifelse, '$1', '$2', '$4'}.
+IfBlock -> IfBraced Elements EndIfBraced : {'if', '$1', '$2'}.
+IfBraced -> open_tag if_keyword IfExpression close_tag : '$3'.
+IfExpression -> not_keyword IfExpression : {'not', '$2'}.
+IfExpression -> Variable : '$1'.
+
+ElseBraced -> open_tag else_keyword close_tag.
+EndIfBraced -> open_tag endif_keyword close_tag.
+
+AutoEscapeBlock -> AutoEscapeBraced Elements EndAutoEscapeBraced : {autoescape, '$1', '$2'}.
+AutoEscapeBraced -> open_tag autoescape_keyword identifier close_tag : '$3'.
+EndAutoEscapeBraced -> open_tag endautoescape_keyword close_tag.
+
+Filter -> identifier : ['$1'].
+Filter -> identifier colon Literal : ['$1', '$3'].
+
+Literal -> string_literal : '$1'.
+Literal -> number_literal : '$1'.

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/chat
+END
+include.mk
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/erlyaws/!svn/ver/836/trunk/yaws/applications/chat/include.mk
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/erlyaws/!svn/ver/836/trunk/yaws/applications/chat/Makefile
+END

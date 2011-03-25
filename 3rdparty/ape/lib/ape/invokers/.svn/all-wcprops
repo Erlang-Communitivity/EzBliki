@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/11/trunk/lib/ape/invokers
+END
+putter.rb
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/11/trunk/lib/ape/invokers/putter.rb
+END
+deleter.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/11/trunk/lib/ape/invokers/deleter.rb
+END
+getter.rb
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/11/trunk/lib/ape/invokers/getter.rb
+END
+poster.rb
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/11/trunk/lib/ape/invokers/poster.rb
+END

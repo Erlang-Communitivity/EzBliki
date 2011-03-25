@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/129/trunk/src/tests
+END
+erlydtl_unittests.erl
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/129/trunk/src/tests/erlydtl_unittests.erl
+END
+erlydtl_functional_tests.erl
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/125/trunk/src/tests/erlydtl_functional_tests.erl
+END
+erlydtl_example_variable_storage.erl
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/128/trunk/src/tests/erlydtl_example_variable_storage.erl
+END

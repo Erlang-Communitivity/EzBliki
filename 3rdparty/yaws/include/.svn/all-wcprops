@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svnroot/erlyaws/!svn/ver/1218/trunk/yaws/include
+END
+yaws_api.hrl
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/erlyaws/!svn/ver/1181/trunk/yaws/include/yaws_api.hrl
+END
+yaws_dav.hrl
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/include/yaws_dav.hrl
+END
+erlsom.hrl
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/erlyaws/!svn/ver/1044/trunk/yaws/include/erlsom.hrl
+END
+soap.hrl
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/erlyaws/!svn/ver/1044/trunk/yaws/include/soap.hrl
+END
+yaws.hrl
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/erlyaws/!svn/ver/1218/trunk/yaws/include/yaws.hrl
+END

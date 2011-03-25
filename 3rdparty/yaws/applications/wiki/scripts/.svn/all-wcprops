@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/erlyaws/!svn/ver/762/trunk/yaws/applications/wiki/scripts
+END
+importFiles.src
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/erlyaws/!svn/ver/417/trunk/yaws/applications/wiki/scripts/importFiles.src
+END
+getPassword.src
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/erlyaws/!svn/ver/417/trunk/yaws/applications/wiki/scripts/getPassword.src
+END
+updateWiki.src
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/erlyaws/!svn/ver/753/trunk/yaws/applications/wiki/scripts/updateWiki.src
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/erlyaws/!svn/ver/762/trunk/yaws/applications/wiki/scripts/Makefile
+END
+addFile.src
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/erlyaws/!svn/ver/762/trunk/yaws/applications/wiki/scripts/addFile.src
+END

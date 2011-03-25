@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/3/trunk/lib/ape/auth
+END
+wsse_credentials.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/3/trunk/lib/ape/auth/wsse_credentials.rb
+END
+google_login_credentials.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/3/trunk/lib/ape/auth/google_login_credentials.rb
+END

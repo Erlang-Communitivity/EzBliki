@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/c_src
+END
+epam.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/c_src/epam.c
+END
+setuid_drv.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/c_src/setuid_drv.c
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/erlyaws/!svn/ver/1124/trunk/yaws/c_src/Makefile
+END

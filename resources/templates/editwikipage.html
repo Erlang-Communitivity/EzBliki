@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<title>Edit wiki page</title>
+	<style type="text/css" media="screen">@import "/css/layout3.css";</style>
+	    <script type="text/javascript" src="/js/preview.js"></script>
+  </head>
+
+<body>
+
+<div class="content">
+<form method="post" action="" id="form1">
+	<label for="title">Title:</label> 
+   	<input class="field" type="text" id="title" name="title" size="50" maxlength="60" value="{{ entry.title }}">
+	<br >
+
+	<label for="published">Published:</label>
+    <input class="field" type="text" id="published" name="published" size="50" maxlength="60" value="{{ entry.published }}">
+	<br>
+
+	<label for="summary">Summary:</label>
+	<textarea class="field" id="summary" name="summary" rows="5" cols="50">{{ entry.summary }}</textarea>
+	<br>
+	
+	<label for="Text">Content:</label>
+	<textarea class="field" id="Text" name="Text" rows="20" cols="50">
+{% if entry.content %}{% if entry.content.text %}{% if entry.content.text.wikicreole %}{{  entry.content.text.wikicreole.en_us }}{% endif %}{% endif %}{% endif %}
+</textarea>
+	<br>
+	
+	<label for="Html">Preview:</label>
+	<div class="field" id="Html" name="Html"></div>
+	<br>
+	<input class="button" type="submit" name="update" value="Update" /><input type="submit" name="cancel" class="button"  value="Cancel" />
+	<br>
+</form>
+</div>
+
+<div class="content">
+	<h2>Known Issues</h2>
+	<p>This layout fails in IE4.5/Mac. That browser has poor support for CSS absolute positioning, yet it recognizes and executes the CSS @import statement used to hide CSS from broken browsers. Currently, there is no known solution.</p>
+</div>
+
+<div id="ft">
+    <center><span>Copyright &copy; Communitivity Inc. All rights reserved.</span><br />
+    <a href="/about/Privacy_Policy">Privacy Policy</a> - 
+       <a href="/about/Terms_of_Service">Terms of Service</a> - 
+       <a href="/about/Copyright_Policy">Copyright Policy</a> - 
+       <a href="/about/Job_Openings">Job Openings</a>
+	</center>
+</div>
+
+<div id="navAlpha">
+	<h2>Links</h2>
+
+	<p>
+		<a href="" title="">Nothing Here</a>
+		<a href="" title="">Links Nowhere</a>
+		<a href="" title="">Fake Link Four</a>
+		<a href="" title="">Fifth Fake Link</a>
+	</p>
+</div>
+
+<div id="navBeta">
+	<p>
+	 {% if openid_identifier %}
+		<form name="openid_login" action="/logout/" method="post">
+			OpenId: {{ openid_identifier }} 
+			<INPUT type="hidden" name="return_to" value="{{ this_url }}" />
+			<!-- TODO Logout is not working, seems to be hanging as if it's trying to talk to session process -->
+			<INPUT type="submit" name="mysubmit" value="Logout" />
+		<!-- -->
+		</form>
+		{% else %}
+        <h3>Login</h3>
+		<form name="openid_login" action="/login/" method="post">
+			OpenId: <input type="text" name="openid_identifier" />
+			<INPUT type="hidden" name="return_to" value="{{ this_url }}" />
+			<INPUT type="submit" name="mysubmit" value="Login" />
+		</form>
+		{% endif %}
+	 </p>
+	<h2>About this page</h2>
+	<p>This page allows you to edit an existing Wiki entry, in which case the fields already contain
+		the existing entry property values. It also allows you to create a new wiki entry, in
+		which case the fields are mostly blank. When you're done click the Update/Create button, or 
+		click cancel if you want to stop and go back to the home page.
+	</p>
+</div>
+
+</body>
+</html>

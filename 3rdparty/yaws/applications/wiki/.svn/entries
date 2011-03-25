@@ -1,0 +1,118 @@
+8
+
+dir
+1220
+https://erlyaws.svn.sourceforge.net/svnroot/erlyaws/trunk/yaws/applications/wiki
+https://erlyaws.svn.sourceforge.net/svnroot/erlyaws
+
+
+
+2008-02-14T16:57:23.311765Z
+1217
+klacke
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+9fbdc01b-0d2c-0410-bfb7-fb27d70d8b52
+
+wiki
+dir
+
+start.sh
+file
+
+
+
+
+2008-02-24T16:10:40.000000Z
+c9f55750be8590cd42c8a6d9cf12fab8
+2003-11-01T15:04:21.000000Z
+528
+mikl
+has-props
+
+scripts
+dir
+
+src
+dir
+
+wiki.conf
+file
+
+
+
+
+2008-02-24T16:10:40.000000Z
+cd380efdda52fd5a95bcd83dd1882b9c
+2005-09-25T14:51:27.000000Z
+916
+mikl
+has-props
+
+include.mk
+file
+
+
+
+
+2008-02-24T16:10:40.000000Z
+b5a51cd6556dbaad6e38a42288708aa6
+2002-08-21T10:50:11.000000Z
+133
+jbevemyr
+has-props
+
+vsn.mk
+file
+
+
+
+
+2008-02-24T16:10:40.000000Z
+ebe30f46e97c79d001565d254821eea7
+2002-06-27T22:40:42.000000Z
+115
+jbevemyr
+has-props
+
+ebin
+dir
+
+Makefile
+file
+
+
+
+
+2008-02-24T16:10:40.000000Z
+fb6f8e3505e9353433e3ce8f174db50d
+2003-11-01T15:04:21.000000Z
+528
+mikl
+has-props
+
+README
+file
+
+
+
+
+2008-02-24T16:10:40.000000Z
+5db1b0308ca336a26cba6c73736f85df
+2006-02-26T13:38:44.000000Z
+948
+mbj
+has-props
+

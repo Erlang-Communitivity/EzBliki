@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/www/shopingcart
+END
+loginpost.yaws
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/erlyaws/!svn/ver/191/trunk/yaws/www/shopingcart/loginpost.yaws
+END
+buy.yaws
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/www/shopingcart/buy.yaws
+END
+source.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/www/shopingcart/source.html
+END
+shopcart.erl
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/www/shopingcart/shopcart.erl
+END
+junk.jpg
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/erlyaws/!svn/ver/1159/trunk/yaws/www/shopingcart/junk.jpg
+END
+style.css
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/erlyaws/!svn/ver/194/trunk/yaws/www/shopingcart/style.css
+END
+shopcart_form.yaws
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/www/shopingcart/shopcart_form.yaws
+END
+index.yaws
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/www/shopingcart/index.yaws
+END
+logout.yaws
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/www/shopingcart/logout.yaws
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/erlyaws/!svn/ver/960/trunk/yaws/www/shopingcart/Makefile
+END

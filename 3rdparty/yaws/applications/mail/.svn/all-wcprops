@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/mail
+END
+TODO
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/erlyaws/!svn/ver/631/trunk/yaws/applications/mail/TODO
+END
+include.mk
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/erlyaws/!svn/ver/526/trunk/yaws/applications/mail/include.mk
+END
+vsn.mk
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/erlyaws/!svn/ver/526/trunk/yaws/applications/mail/vsn.mk
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/erlyaws/!svn/ver/526/trunk/yaws/applications/mail/Makefile
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/erlyaws/!svn/ver/588/trunk/yaws/applications/mail/README
+END

@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svnroot/erlyaws/!svn/ver/27/trunk/yaws/bin
+END
+.foobar
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svnroot/erlyaws/!svn/ver/27/trunk/yaws/bin/.foobar
+END

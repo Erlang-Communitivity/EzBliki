@@ -1,0 +1,5 @@
+{config,[ 
+	{urlpatterns,[
+		{"foo", somemodule, somefunc}
+	]}
+]}.

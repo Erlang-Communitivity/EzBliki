@@ -1,0 +1,41 @@
+8
+
+dir
+1220
+https://erlyaws.svn.sourceforge.net/svnroot/erlyaws/trunk/yaws/scripts/freebsd
+https://erlyaws.svn.sourceforge.net/svnroot/erlyaws
+
+
+
+2007-12-29T14:46:50.543582Z
+1191
+klacke
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+9fbdc01b-0d2c-0410-bfb7-fb27d70d8b52
+
+yaws.sh
+file
+
+
+
+
+2008-02-24T16:10:40.000000Z
+2f7c18be72084972a5fe18de9aa17bbb
+2007-12-29T14:46:50.543582Z
+1191
+klacke
+has-props
+

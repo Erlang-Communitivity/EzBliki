@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/yapp
+END
+vsn.mk
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/erlyaws/!svn/ver/1205/trunk/yaws/applications/yapp/vsn.mk
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/erlyaws/!svn/ver/1062/trunk/yaws/applications/yapp/Makefile
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/erlyaws/!svn/ver/1005/trunk/yaws/applications/yapp/README
+END

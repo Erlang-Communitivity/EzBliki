@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svnroot/erlyaws/!svn/ver/1219/trunk/yaws/scripts
+END
+make-upload
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/erlyaws/!svn/ver/1043/trunk/yaws/scripts/make-upload
+END
+Subst
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svnroot/erlyaws/!svn/ver/637/trunk/yaws/scripts/Subst
+END
+yaws.conf.template
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/scripts/yaws.conf.template
+END
+Install
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/erlyaws/!svn/ver/1147/trunk/yaws/scripts/Install
+END
+make-release
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/erlyaws/!svn/ver/1138/trunk/yaws/scripts/make-release
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/erlyaws/!svn/ver/1128/trunk/yaws/scripts/Makefile
+END
+yaws.template
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/scripts/yaws.template
+END

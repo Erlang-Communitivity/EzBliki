@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svnroot/erlyaws/!svn/ver/1124/trunk/yaws/priv
+END
+soap.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/erlyaws/!svn/ver/1044/trunk/yaws/priv/soap.xsd
+END
+wsdl.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/erlyaws/!svn/ver/1044/trunk/yaws/priv/wsdl.xsd
+END
+envelope.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/erlyaws/!svn/ver/1044/trunk/yaws/priv/envelope.xsd
+END
+mime.types
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svnroot/erlyaws/!svn/ver/2/trunk/yaws/priv/mime.types
+END

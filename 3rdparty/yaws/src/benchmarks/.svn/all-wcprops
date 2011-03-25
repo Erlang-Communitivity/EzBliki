@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/benchmarks
+END
+bench.erl
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/benchmarks/bench.erl
+END
+bench.hrl
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/erlyaws/!svn/ver/1094/trunk/yaws/src/benchmarks/bench.hrl
+END
+all.erl
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/benchmarks/all.erl
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/erlyaws/!svn/ver/1094/trunk/yaws/src/benchmarks/README
+END
+conc_path_bm.erl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/src/benchmarks/conc_path_bm.erl
+END

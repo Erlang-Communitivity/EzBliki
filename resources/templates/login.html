@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<!-- Stryle and basic layout from tutorial at http://www.456bereastreet.com/lab/developing_with_web_standards/csslayout/2-col/ -->
+<title>OpenID Login test page</title>
+<style type="text/css" media="screen,projection">
+body,
+html {
+    margin:0;
+    padding:0;
+    background:#a7a09a;
+    color:#000;
+    }
+body {
+    min-width:750px;
+    }
+#wrap {
+    background:#99c;
+    margin:0 auto;
+    width:750px;
+    }
+#header {
+    background:#ddd;
+    }
+#nav {
+    background:#c99;
+    }
+#main {
+    background:#9c9;
+    }
+#sidebar {
+    background:#c9c;
+    }
+#footer {
+    background:#cc9;
+    }
+#main {
+    background:#9c9;
+    float:left;
+    width:500px;
+    }
+#sidebar {
+    background:#c9c;
+    float:right;
+    width:250px;
+    }
+
+</style>
+</head>
+<body>
+<div id="wrap">
+    <div id="nav"><i>Nav bar here </i></div>
+    <div id="main">
+		CONTENT
+    </div>
+    <div id="sidebar">
+	 <p>
+		{% if openid_identifier %}
+		<form name="openid_login" action="/logout/" method="post">
+			OpenId: {{ openid_identifier }} 
+			<INPUT type="hidden" name="return_to" value="http://localhost:8888/login" />
+			<!-- TODO Logout is not working, seems to be hanging as if it's trying to talk to session process -->
+			<INPUT type="submit" name="mysubmit" value="Logout" />
+		<!-- -->
+		</form>
+		{% else %}
+        <h3>Login</h3>
+		<form name="openid_login" action="/login/" method="post">
+			OpenId: <input type="text" name="openid_identifier" />
+			<INPUT type="hidden" name="return_to" value="http://localhost:8888/login" />
+			<INPUT type="submit" name="mysubmit" value="Login" />
+		</form>
+		{% endif %}
+	</p>
+    </div>
+    <div id="footer">
+        <p>Footer</p>
+    </div>
+</div>
+</body>
+</html>

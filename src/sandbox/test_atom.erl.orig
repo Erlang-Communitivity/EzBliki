@@ -1,0 +1,70 @@
+-module(test_atom).
+ 
+-export([build_feeds/0,extract_entries/1,start/0, get_feed/1]).
+
+get_feed(FeedId) ->
+	%% add error handling
+	FeedTab =
+	[{_, Feed}] = ets:lookup(FeedTab, ets:first(FeedTab)),
+	Feed.
+	
+build_feeds() ->
+	Feeds =	ets:new('atom_collections', [public, set]),
+	Entries = ets:new('atom_entries', [public, set]),
+	ets:insert(Feeds, { 'urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6',
+		{feed, [
+			{id, 'urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6'},
+			{title, "Example Feed"},
+			{link, "http://example.org/"},
+			{updated, "2003-12-13T18:30:02Z"},
+			{author, [{name,"John Doe"}]},
+			{entry, {id, 'urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a'}},
+			{entry, {id, 'urn:uuid:1225c695-cfb8-4ebb-bbbb-80da344efa6a'}}
+	]}}),
+	ets:insert(Entries, {'urn:uuid:1225c695-cfb8-4ebb-bbbb-80da344efa6a',
+		{entry, [
+			{title, "Atom-Powered Robots Run Amok"},
+			{link, "http://example.org/2003/12/13/atom03" },
+			{id, 'urn:uuid:1225c695-cfb8-4ebb-bbbb-80da344efa6a'},
+			{updated, "2003-12-13T18:30:02Z"},
+			{summary, "Some text"},
+			{content, [{type, "text/wikicreole"},{text, "**A bold example**"}
+	]}]}}),
+	ets:insert(Entries, {'urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a',
+		{entry, [
+			{title, "Atom-Powered Robots Run Amok"},
+			{link, "http://example.org/2003/12/13/atom03" },
+			{id, 'urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a'},
+			{updated, "2003-12-13T18:30:02Z"},
+			{summary, "Some text"},
+			{content, [{type, "text/wikicreole"},{text,
+"//italics// \\
+ **bold** \\
+"}
+	]}]}}),
+	{Feeds, Entries}.
+
+extract_entries({feed, Props}) ->
+	OnlyEntries = fun ({entry, _}) -> true;
+			    (X) -> false
+			end,
+	EntryProps = lists:filter(OnlyEntries, Props),
+	%io:write(EntryProps),
+	ExpandEntry = fun ({entry, {id, Id}}) -> [{EntryId, {entry, Fields}}] = ets:lookup(EntryTab, Id), Fields ;
+			  (X) -> nomatch 
+			end,
+	lists:map(ExpandEntry, EntryProps).
+
+start() ->
+	{FeedTab, EntryTab} = build_feeds(),
+	%io:format("Feeds table:\n"),
+	%io:write(ets:tab2list(FeedTab)),	
+	%io:format("\nEntries table:\n"),
+	%io:write(ets:tab2list(EntryTab)),	
+	%io:format("\n \n"),
+	[{_, Feed}] = ets:lookup(FeedTab, ets:first(FeedTab)),
+	%%io:write(Feed),
+	io:write(extract_entries(Feed)),
+	io:format("\ndone\n"),
+	halt(0).
+

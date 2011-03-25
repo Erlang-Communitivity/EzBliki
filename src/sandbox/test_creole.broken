@@ -1,0 +1,246 @@
+
+-module(test_creole).
+-compile(export_all).
+
+
+test(WikiText) ->
+	io:format("~n~n========== test(\"~s\") ======== ~n~n",[WikiText]),
+	{Tokens, Pos, State} = scan(WikiText),
+	Result = Tokens,
+	%Tokens = erl_scan:string(WikiText),
+	%Result = creole_parser:parse(Tokens),
+	io:format("Result:~n ~p ~n", [Result]).
+
+init_state() ->
+	dict:from_list([
+		{bold, false},
+		{italics, false},
+		{h1, false},
+		{h2, false},
+		{h3, false},
+		{h4, false},
+		{h5, false},
+		{h6, false}
+	]).
+	
+test_flag(State, Flag) ->
+	{ok, Value} =  dict:find(Flag, State),
+	Value.
+
+set_flag(State, Flag) ->
+	dict:store(Flag, true, State).
+
+clear_flag(State, Flag) ->
+	dict:store(Flag, false, State).
+
+clear_flags_acc(Flag, {State, LastTokens}) ->
+	case test_flag(State, Flag) of
+		true -> {State, [{Flag, false} | LastTokens]};
+		false -> {State, LastTokens}
+	end.
+
+clear_flags(State, Tokens, Flags) when is_list(Flags) ->
+	NextState = lists:foldl(fun(Flag, LastState) -> clear_flag(LastState, Flag) end, State, Flags),
+	{_, NextTokens} = lists:foldl(fun clear_flags_acc/2, {State, Tokens}, Flags), 
+	{NextTokens, NextState}.
+
+
+	
+% These are flags that can span lines but not paragraphs
+non_para_spanning_flags() ->
+	[bold, italics].
+
+non_line_spanning_flags() ->
+	[h1,h2,h3,h4,h5,h6].
+
+toggle_flag(State, Flag) ->
+	{ok, Old} = dict:find(Flag, State),
+	case Old of
+		true -> dict:store(Flag, false, State);
+		false -> dict:store(Flag, true, State)
+	end.
+
+
+in_header(State) ->
+	{ok, H1} = dict:find(h1, State),
+	{ok, H2} = dict:find(h2, State),
+	{ok, H3} = dict:find(h3, State),
+	{ok, H4} = dict:find(h4, State),
+	{ok, H5} = dict:find(h5, State),
+	{ok, H6} = dict:find(h6, State),
+	H1 or H2 or H3 or H4 or H5 or H6.
+
+clear_headers(State) ->
+	clear_flags(State, [], [h1,h2,h3,h4,h5,h6]).
+
+						
+header_lvl(State) ->
+	{ok, H1} = dict:find(h1, State),
+	{ok, H2} = dict:find(h2, State),
+	{ok, H3} = dict:find(h3, State),
+	{ok, H4} = dict:find(h4, State),
+	{ok, H5} = dict:find(h5, State),
+	{ok, H6} = dict:find(h6, State),
+	if
+		H1 -> h1;
+		H2 -> h2;
+		H3 -> h3;
+		H4 -> h4;
+		H5 -> h6;
+		true -> nil
+	end.	
+
+scan(Text) ->
+	scan(Text, 1, [{creole_start}], [], init_state()).
+
+scan("**"++Chars, Pos, Toks, Buffer, State)  ->
+	Flag = bold,
+	case Buffer of
+		[] -> ResultingToks = Toks;
+		_ -> ResultingToks = [{text, lists:reverse(Buffer)} | Toks]
+	end,
+	Leaving = test_flag(State, Flag),
+	case Leaving of
+		false -> scan(Chars, Pos+2, [ {Flag, true} | ResultingToks ], [], set_flag(State, Flag));
+		true -> scan(Chars, Pos+2, [ {Flag, false} | ResultingToks ], [], clear_flag(State, Flag))
+	end;
+
+scan("\\"++Chars, Pos, Toks, Buffer, State)  ->
+	Size = 2,
+	case Buffer of
+		[] -> ResultingToks = Toks;
+		_ -> ResultingToks = [{text, lists:reverse(Buffer)} | Toks]
+	end,
+	scan(Chars, Pos+Size, [ {break} | ResultingToks ], [], State);
+
+scan("//"++Chars, Pos, Toks, Buffer, State)  ->
+	Flag = italics,
+	Size = 2,
+	case Buffer of
+		[] -> ResultingToks = Toks;
+		_ -> ResultingToks = [{text, lists:reverse(Buffer)} | Toks]
+	end,
+	Leaving = test_flag(State, Flag),
+	case Leaving of
+		false -> scan(Chars, Pos+Size, [ {Flag, true} | ResultingToks ], [], set_flag(State, Flag));
+		true -> scan(Chars, Pos+Size, [ {Flag, false} | ResultingToks ], [], clear_flag(State, Flag))
+	end;
+
+scan([$= | Chars], Pos, [{eol} | Toks], Buffer, State) ->
+	{Flag, NextChars, NextPos} = scan_header_start(Chars, Pos),
+	scan(NextChars, NextPos, [ {Flag, true} | [ {eol} | Toks ]], Buffer, set_flag(State, Flag));
+
+scan([$= | Chars], Pos, [{creole_start} | Toks], Buffer, State) ->
+	{Flag, NextChars, NextPos} = scan_header_start(Chars, Pos),
+	scan(NextChars, NextPos, [ {Flag, true} | [ {creole_start} | Toks ]], Buffer, set_flag(State, Flag));
+
+scan([$= | Chars], Pos, Toks, Buffer, State) ->
+	{Flag, NextChars, NextPos} = scan_header_stop(Chars, Pos),
+	scan(NextChars, NextPos, [ {Flag, false} | Toks ], Buffer, clear_flag(State, Flag));
+
+scan("====== "++Chars, Pos, [ {eol} | Toks], Buffer, State)  ->
+	scan(Chars, Pos+7, [ {h6, true} | [ {eol} | Toks ]], Buffer, set_flag(State, h6));
+	
+scan("====== "++Chars, Pos, [ {creole_start} | Toks], Buffer, State)  ->
+	scan(Chars, Pos+7, [ {h6, true} | [ {eol} | Toks ]], Buffer, set_flag(State, h6));
+
+scan("====== "++Chars, Pos, Toks, Buffer, State)  ->
+	case Buffer of
+		[] -> ResultingToks = Toks;
+		_ -> ResultingToks = [{text, lists:reverse(Buffer)} | Toks]
+	end,
+	Flag = h6,
+	Leaving = test_flag(State, Flag),
+	case Leaving of
+		false -> erlang:error(header_not_at_line_start);
+		true -> scan(Chars, Pos+7, [ {Flag, false} | ResultingToks ], [], clear_flag(State, Flag))
+	end;
+
+
+
+scan([$\n | Chars], Pos, [ {eol} | Toks], Buffer, State)  ->
+	Flag = para,
+	Size = 2,
+	case Buffer of
+		[] -> ResultingToks = Toks;
+		_ -> ResultingToks = [{text, lists:reverse(Buffer)} | Toks]
+	end,
+	% Neither bold nor italics can cross paragraphs
+	case  test_flag(State, bold) of
+		true -> ResultingToks2 = [ {bold, false} | ResultingToks];
+		false -> ResultingToks2 = ResultingToks
+	end,
+	case  test_flag(State, italics) of
+		true -> ResultingToks3 = [ {italics, false} | ResultingToks2];
+		false -> ResultingToks3 = ResultingToks2
+	end,
+	% and finally we add the new_para token
+	{NextTokens, NextState} = clear_flags(State, ResultingToks3, non_para_spanning_flags()), 
+	scan(Chars, Pos+Size, [ {new_para} | NextTokens ], [], NextState);
+
+scan([$\n | Chars], Pos, Toks, Buffer, State)  ->
+	Size = 1,
+	case Buffer of
+		[] -> ResultingToks = Toks;
+		_ -> ResultingToks = [{text, lists:reverse(Buffer)} | Toks]
+	end,
+	case in_header(State) of
+		true -> ResultingToks2 = [{header_lvl(State), false} | ResultingToks];
+		false -> ResultingToks2 = ResultingToks
+	end,
+	{NextTokens, NextState} = clear_flags(State, ResultingToks2, non_line_spanning_flags()), 
+	scan(Chars, Pos+Size, [ {eol} | NextTokens ], [], NextState);
+
+scan([$\r | Chars], Pos, Toks, Buffer, State)  ->
+	scan(Chars, Pos+1, Toks, Buffer, State); % We skip \r chars
+
+scan([Ch | Chars], Pos, Toks, [], State)  ->
+	scan(Chars, Pos+1, Toks, [Ch], State);
+scan([Ch | Chars], Pos, Toks, Buffer, State)  ->
+	scan(Chars, Pos+1, Toks, [Ch | Buffer], State);
+scan([], Pos, Toks, [], State) ->
+	{lists:reverse([{creole_end} | Toks]), Pos, State};  
+scan([], Pos, Toks, Buffer, State) ->
+	{lists:reverse([ {creole_end} | [{text, lists:reverse(Buffer)} | Toks]]), Pos, State}.  
+
+% Remember to test for error cases:
+%	**//wrong**//
+%	//**wrong//**
+%
+test() ->
+	test("**bold**"),
+	test("**italics**"),
+	test("
+Italics should //be
+able// to cross lines.
+
+But, should //not be...
+
+...able// to cross paragraphs"),
+	test("
+bold should **be
+able** to cross lines.
+
+But, should **not be...
+
+...able** to cross paragraphs"),
+	test("**//emphasized italics//**"),
+	test("//**emphasized italics**//"),
+	test("//This is *also** good.//"),
+	test("=== heading3 ==="),
+	test("=== heading3 ==="),
+	test("=== **heading3** ==="),
+	test("=== **heading3 ===\nsome **other**stuff").
+
+
+start() ->
+	scan("Now **is** the time for //all// of the **bold**
+		and the **beautiful**"),
+
+	% Portion below doesn't matter until scanner works
+	%ObjectFile =  "src/creole_parser.erl",
+	%yecc:yecc("resources/creole.yrl", ObjectFile),
+	%compile:file(ObjectFile, [verbose,report_errors,report_warnings, {outdir, "ebin"}]),
+	%test("Now is for **bold** and the brave"),
+	halt(0).
+

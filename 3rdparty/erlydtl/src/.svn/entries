@@ -1,0 +1,34 @@
+8
+
+dir
+129
+http://erlydtl.googlecode.com/svn/trunk/src
+http://erlydtl.googlecode.com/svn
+
+
+
+2008-02-14T23:49:16.639103Z
+129
+emmiller
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+a5195066-8e3e-0410-a82a-05b01b1b9875
+
+erlydtl
+dir
+
+tests
+dir
+

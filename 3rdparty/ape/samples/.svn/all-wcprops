@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/svn/!svn/ver/14/trunk/samples
+END
+mini_entry.eruby
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/14/trunk/samples/mini_entry.eruby
+END
+categories_schema.txt
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/14/trunk/samples/categories_schema.txt
+END
+basic_entry.eruby
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/14/trunk/samples/basic_entry.eruby
+END
+unclean_xhtml_entry.eruby
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/14/trunk/samples/unclean_xhtml_entry.eruby
+END
+atom_schema.txt
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/14/trunk/samples/atom_schema.txt
+END
+service_schema.txt
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/14/trunk/samples/service_schema.txt
+END

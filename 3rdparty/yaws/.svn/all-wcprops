@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svnroot/erlyaws/!svn/ver/1220/trunk/yaws
+END
+configure
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svnroot/erlyaws/!svn/ver/1218/trunk/yaws/configure
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svnroot/erlyaws/!svn/ver/958/trunk/yaws/LICENSE
+END
+configure.in
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/configure.in
+END
+ChangeLog
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svnroot/erlyaws/!svn/ver/1088/trunk/yaws/ChangeLog
+END
+config.guess
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svnroot/erlyaws/!svn/ver/630/trunk/yaws/config.guess
+END
+two-mode-mode.el
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/two-mode-mode.el
+END
+vsn.mk
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svnroot/erlyaws/!svn/ver/1211/trunk/yaws/vsn.mk
+END
+config.sub
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svnroot/erlyaws/!svn/ver/630/trunk/yaws/config.sub
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svnroot/erlyaws/!svn/ver/981/trunk/yaws/README
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svnroot/erlyaws/!svn/ver/975/trunk/yaws/Makefile
+END
+include.mk.in
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/erlyaws/!svn/ver/1218/trunk/yaws/include.mk.in
+END
+install-sh
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svnroot/erlyaws/!svn/ver/315/trunk/yaws/install-sh
+END

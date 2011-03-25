@@ -1,0 +1,54 @@
+8
+
+dir
+1220
+https://erlyaws.svn.sourceforge.net/svnroot/erlyaws/trunk/yaws/www/code
+https://erlyaws.svn.sourceforge.net/svnroot/erlyaws
+
+
+
+2008-02-14T16:57:23.311765Z
+1217
+klacke
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+9fbdc01b-0d2c-0410-bfb7-fb27d70d8b52
+
+myappmod.erl
+file
+
+
+
+
+2008-02-24T16:10:39.000000Z
+203489c0b4c022d2b46266870854e57c
+2008-02-14T16:57:23.311765Z
+1217
+klacke
+has-props
+
+Makefile
+file
+
+
+
+
+2008-02-24T16:10:39.000000Z
+94caffd723a3daff6ca8df59aa898455
+2006-04-27T19:25:10.000000Z
+960
+klacke
+has-props
+

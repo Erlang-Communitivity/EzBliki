@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<!-- Stryle and basic layout from tutorial at http://www.456bereastreet.com/lab/developing_with_web_standards/csslayout/2-col/ -->
+<title>{{ feed.title }}</title>
+<style type="text/css" media="screen,projection">
+body,
+html {
+    margin:0;
+    padding:0;
+    background:#a7a09a;
+    color:#000;
+    }
+body {
+    min-width:750px;
+    }
+#wrap {
+    background:#99c;
+    margin:0 auto;
+    width:750px;
+    }
+#header {
+    background:#ddd;
+    }
+#nav {
+    background:#c99;
+    }
+#main {
+    background:#9c9;
+    }
+#sidebar {
+    background:#c9c;
+    }
+#footer {
+    background:#cc9;
+    }
+#main {
+    background:#9c9;
+    float:left;
+    width:500px;
+    }
+#sidebar {
+    background:#c9c;
+    float:right;
+    width:250px;
+    }
+
+</style>
+</head>
+<body>
+<div id="wrap">
+    <div id="header"><h1>{{ feed.title }}</h1><h2>{{ feed.subtitle }}</h2></div>
+    <div id="nav"><i>Nav bar here </i></div>
+    <div id="main">
+		{% for entry in feed.entries %}
+			<hr />
+			<div class="entry">
+				<a class="title" href="{{ entry.link.href }}">{{ entry.title }}</a>
+				<div><small><i>Last modified: {{ entry.updated }}</i></small></div>
+				<div>{{ entry.summary }}</div>
+			</div>
+		{% endfor %}
+    </div>
+    <div id="sidebar">
+        <h3>Column 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit...</p>
+        <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            ...
+        </ul>
+    </div>
+    <div id="footer">
+        <p>Footer</p>
+    </div>
+</div>
+</body>
+</html>

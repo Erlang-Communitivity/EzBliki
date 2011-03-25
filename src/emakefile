@@ -1,0 +1,11 @@
+{'bliki/app/atom/*', [{outdir,"../ebin/bliki/app/atom"},{pa,".."},{i, "../include"},{i, "../3rdparty/yaws/include"}, {warn_format,0}]}. 
+
+{'bliki/behaviour/*', [{outdir,"../ebin/bliki/behaviour"},{pa,".."},{i, "../include"},{i, "../3rdparty/yaws/include"}, {warn_format,0}]}. 
+
+{'bliki/appmod/*', [{outdir,"../ebin/bliki/appmod"},{pa,".."},{i, "../include"},{i, "../3rdparty/yaws/include"}, {warn_format,0}]}. 
+
+{'bliki/model/*', [{outdir,"../ebin/bliki/model"},{pa,".."},{i, "../include"},{i, "../3rdparty/yaws/include"}, {warn_format,0}]}. 
+
+{'bliki/openid/*', [{outdir,"../ebin/bliki/openid"},{pa,".."},{i, "../include"},{i, "../3rdparty/yaws/include"}, {warn_format,0}]}. 
+
+{'bliki/*', [{outdir,"../ebin/bliki"},{pa,".."},{i, "../include"},{i, "../3rdparty/yaws/include"}, {warn_format,0}]}. 

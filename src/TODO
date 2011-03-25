@@ -1,0 +1,17 @@
+.. Add loading of appmoddata to controller function map, controller func spec is ArgsRecord -> (view, RenderModule, Vars) (error, ErridAtom, ErrMsg)
+.. Appmod must...
+  .. Call map function to get controller map (single arg, the ArgsRecord)
+  .. find the appropriate controller func from map
+  .. call it with the passed in record
+  .. print status
+  .. compile view if needed
+  .. render view with args returned in 3rd slot of controller returned tuple, which will be {ok, Val}
+  .. return {html, Val}
+ 
+Abstract the above so our conf file is
+ (blikiconf, [
+	(factories, [
+		(controller_facs, []),
+		(renderers, [])
+	])
+])

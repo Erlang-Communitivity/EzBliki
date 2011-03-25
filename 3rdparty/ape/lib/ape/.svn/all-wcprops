@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/svn/!svn/ver/15/trunk/lib/ape
+END
+handler.rb
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/11/trunk/lib/ape/handler.rb
+END
+invoker.rb
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/11/trunk/lib/ape/invoker.rb
+END
+atomURI.rb
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/11/trunk/lib/ape/atomURI.rb
+END
+escaper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/11/trunk/lib/ape/escaper.rb
+END
+version.rb
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/3/trunk/lib/ape/version.rb
+END
+validator.rb
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/11/trunk/lib/ape/validator.rb
+END
+categories.rb
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/11/trunk/lib/ape/categories.rb
+END
+print_writer.rb
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/11/trunk/lib/ape/print_writer.rb
+END
+collection.rb
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/11/trunk/lib/ape/collection.rb
+END
+crumbs.rb
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/11/trunk/lib/ape/crumbs.rb
+END
+service.rb
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/11/trunk/lib/ape/service.rb
+END
+entry.rb
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/11/trunk/lib/ape/entry.rb
+END
+feed.rb
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/11/trunk/lib/ape/feed.rb
+END
+names.rb
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/11/trunk/lib/ape/names.rb
+END
+html.rb
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/11/trunk/lib/ape/html.rb
+END
+samples.rb
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/15/trunk/lib/ape/samples.rb
+END
+server.rb
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/13/trunk/lib/ape/server.rb
+END
+authent.rb
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/11/trunk/lib/ape/authent.rb
+END

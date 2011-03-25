@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/yapp/src
+END
+yapp_server.erl
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/yapp/src/yapp_server.erl
+END
+yapp_sup.erl
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/yapp/src/yapp_sup.erl
+END
+yapp_registry.erl
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/erlyaws/!svn/ver/1005/trunk/yaws/applications/yapp/src/yapp_registry.erl
+END
+yapp_handler.erl
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/yapp/src/yapp_handler.erl
+END
+yapp_event_handler.erl
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/yapp/src/yapp_event_handler.erl
+END
+yapp.erl
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/yapp/src/yapp.erl
+END
+yapp_app.erl
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/yapp/src/yapp_app.erl
+END
+yapp_mnesia_server.erl
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/yapp/src/yapp_mnesia_server.erl
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/erlyaws/!svn/ver/1005/trunk/yaws/applications/yapp/src/Makefile
+END
+yapp.app.src
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/erlyaws/!svn/ver/1005/trunk/yaws/applications/yapp/src/yapp.app.src
+END

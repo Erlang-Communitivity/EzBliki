@@ -1,0 +1,102 @@
+8
+
+dir
+1220
+https://erlyaws.svn.sourceforge.net/svnroot/erlyaws/trunk/yaws/applications/mail
+https://erlyaws.svn.sourceforge.net/svnroot/erlyaws
+
+
+
+2008-02-14T16:57:23.311765Z
+1217
+klacke
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+9fbdc01b-0d2c-0410-bfb7-fb27d70d8b52
+
+mail
+dir
+
+TODO
+file
+
+
+
+
+2008-02-24T16:10:39.000000Z
+de4689d91138697084a4cc51decbf029
+2004-03-14T22:53:58.000000Z
+631
+jbevemyr
+has-props
+
+src
+dir
+
+include.mk
+file
+
+
+
+
+2008-02-24T16:10:39.000000Z
+424e30351296ce44fd0a78fbb4941140
+2003-10-29T23:22:19.000000Z
+526
+jbevemyr
+has-props
+
+vsn.mk
+file
+
+
+
+
+2008-02-24T16:10:39.000000Z
+ebe30f46e97c79d001565d254821eea7
+2003-10-29T23:22:19.000000Z
+526
+jbevemyr
+has-props
+
+ebin
+dir
+
+Makefile
+file
+
+
+
+
+2008-02-24T16:10:39.000000Z
+9c481747f2d17bb8e82a384eecaf6099
+2003-10-29T23:22:19.000000Z
+526
+jbevemyr
+has-props
+
+README
+file
+
+
+
+
+2008-02-24T16:10:39.000000Z
+3ac352ccce0f53c0af817ed2baf52441
+2004-02-06T17:06:03.000000Z
+588
+klacke
+has-props
+

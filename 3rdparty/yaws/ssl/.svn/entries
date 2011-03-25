@@ -1,0 +1,54 @@
+8
+
+dir
+1220
+https://erlyaws.svn.sourceforge.net/svnroot/erlyaws/trunk/yaws/ssl
+https://erlyaws.svn.sourceforge.net/svnroot/erlyaws
+
+
+
+2004-03-18T13:31:01.000000Z
+637
+klacke
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+9fbdc01b-0d2c-0410-bfb7-fb27d70d8b52
+
+yaws-key.pem
+file
+
+
+
+
+2008-02-24T16:10:41.000000Z
+aa52580a33eb6dc04ffc5638dadde834
+2004-03-18T13:31:01.000000Z
+637
+klacke
+has-props
+
+yaws-cert.pem
+file
+
+
+
+
+2008-02-24T16:10:41.000000Z
+8662c9cf5cc2296bdbe57bc8485309ca
+2004-03-18T13:31:01.000000Z
+637
+klacke
+has-props
+

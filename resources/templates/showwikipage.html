@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<title>Three Columns - Flanking Menus</title>
+	<style type="text/css" media="screen">@import "/css/layout3.css";</style>
+	    <script type="text/javascript" src="/js/preview.js"></script>
+  </head>
+
+<body>
+
+<div class="content">
+	<h2 class="title">{{ entry.title }}</h2>
+	<div class="published">{{ entry.published }}</div>
+	<div name="Html" id="Html">Javascript is disabled</div>
+	<form method="post" style="display: none;" action="javascript:void();" id="form1">
+	<textarea style="display: none;" id="Text" name="Text" rows="20" cols="50">{% if entry.content %}{% if entry.content.text %}{% if entry.content.text.wikicreole %}{{  entry.content.text.wikicreole.en_us }}{% endif %}{% endif %}{% endif %}</textarea>
+	</form>
+</div>
+
+<div id="ft" style="position: absolute; left:25%; bottom: .5em; align: center;">
+    <center><span>Copyright &copy; Communitivity Inc. All rights reserved.</span><br />
+    <a href="/about/Privacy_Policy">Privacy Policy</a> - 
+       <a href="/about/Terms_of_Service">Terms of Service</a> - 
+       <a href="/about/Copyright_Policy">Copyright Policy</a> - 
+       <a href="/about/Job_Openings">Job Openings</a>
+	</center>
+</div>
+
+<div id="navAlpha">
+	<h2>Actions</h2>
+
+	<p>
+		<a href="/about/{{ entry.id }}/edit">Edit</a>
+                <a href="/about/{{ entry.id }}/comments">View Comments</a>
+                <a href="/about/xxx">About author</a>
+	</p>
+</div>
+
+<div id="navBeta">
+	<p>
+		{% if openid_identifier %}
+		<form name="openid_login" action="/logout/" method="post">
+			OpenId: {{ openid_identifier }} 
+			<INPUT type="hidden" name="return_to" value="{{ this_url }}" />
+			<!-- TODO Logout is not working, seems to be hanging as if it's trying to talk to session process -->
+			<INPUT type="submit" name="mysubmit" value="Logout" />
+		<!-- -->
+		</form>
+		{% else %}
+        <h3>Login</h3>
+		<form name="openid_login" action="/login/" method="post">
+			OpenId: <input type="text" name="openid_identifier" />
+			<INPUT type="hidden" name="return_to" value="{{ this_url }}" />
+			<INPUT type="submit" name="mysubmit" value="Login" />
+		</form>
+		{% endif %}
+	</p>
+</div>
+
+</body>
+</html>

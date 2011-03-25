@@ -1,0 +1,161 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/125/trunk/examples/docroot
+END
+if_preset
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/122/trunk/examples/docroot/if_preset
+END
+for_list
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/122/trunk/examples/docroot/for_list
+END
+include
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/122/trunk/examples/docroot/include
+END
+ifequal
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/122/trunk/examples/docroot/ifequal
+END
+for
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/122/trunk/examples/docroot/for
+END
+include.html
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/122/trunk/examples/docroot/include.html
+END
+var
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/122/trunk/examples/docroot/var
+END
+ifnotequal_preset
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/122/trunk/examples/docroot/ifnotequal_preset
+END
+autoescape
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/122/trunk/examples/docroot/autoescape
+END
+for_records_preset
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/122/trunk/examples/docroot/for_records_preset
+END
+if
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/122/trunk/examples/docroot/if
+END
+for_tuple
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/122/trunk/examples/docroot/for_tuple
+END
+var_error
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/122/trunk/examples/docroot/var_error
+END
+comment
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/122/trunk/examples/docroot/comment
+END
+for_list_preset
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/122/trunk/examples/docroot/for_list_preset
+END
+custom_call
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/125/trunk/examples/docroot/custom_call
+END
+custom_tag
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/122/trunk/examples/docroot/custom_tag
+END
+ifnotequal
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/122/trunk/examples/docroot/ifnotequal
+END
+for_records
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/122/trunk/examples/docroot/for_records
+END
+filters
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/122/trunk/examples/docroot/filters
+END
+for_preset
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/122/trunk/examples/docroot/for_preset
+END
+ifequal_preset
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/122/trunk/examples/docroot/ifequal_preset
+END
+extends
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/122/trunk/examples/docroot/extends
+END
+base
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/122/trunk/examples/docroot/base
+END
+var_preset
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/122/trunk/examples/docroot/var_preset
+END
+custom_tag_error
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/122/trunk/examples/docroot/custom_tag_error
+END

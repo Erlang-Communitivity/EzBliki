@@ -1,0 +1,54 @@
+8
+
+dir
+1220
+https://erlyaws.svn.sourceforge.net/svnroot/erlyaws/trunk/yaws/scripts/gentoo
+https://erlyaws.svn.sourceforge.net/svnroot/erlyaws
+
+
+
+2007-12-29T14:46:50.543582Z
+1191
+klacke
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+9fbdc01b-0d2c-0410-bfb7-fb27d70d8b52
+
+yaws.ebuild
+file
+
+
+
+
+2008-02-24T16:10:40.000000Z
+0e96ee782a02b7666a5e14ec108dbaae
+2003-05-04T23:22:34.000000Z
+402
+klacke
+has-props
+
+init.d.yaws
+file
+
+
+
+
+2008-02-24T16:10:40.000000Z
+dfe9659a6a321c0590a97825e05d9233
+2007-12-29T14:46:50.543582Z
+1191
+klacke
+has-props
+

@@ -1,0 +1,54 @@
+8
+
+dir
+1220
+https://erlyaws.svn.sourceforge.net/svnroot/erlyaws/trunk/yaws/applications/chat/src
+https://erlyaws.svn.sourceforge.net/svnroot/erlyaws
+
+
+
+2008-02-14T16:57:23.311765Z
+1217
+klacke
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+9fbdc01b-0d2c-0410-bfb7-fb27d70d8b52
+
+chat.erl
+file
+
+
+
+
+2008-02-24T16:10:39.000000Z
+7b77a7e12be2d130186fe2e94620c861
+2008-02-14T16:57:23.311765Z
+1217
+klacke
+has-props
+
+Makefile
+file
+
+
+
+
+2008-02-24T16:10:39.000000Z
+64d9f2b709b8d25318622392bf7ff0a0
+2005-02-16T09:18:19.000000Z
+836
+jbevemyr
+has-props
+

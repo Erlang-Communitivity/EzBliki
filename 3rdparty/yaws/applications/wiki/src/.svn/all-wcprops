@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/wiki/src
+END
+wiki_split.erl
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/wiki/src/wiki_split.erl
+END
+utils.erl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/wiki/src/utils.erl
+END
+wiki_templates.erl
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/wiki/src/wiki_templates.erl
+END
+wiki_plugin_backlinks.erl
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/wiki/src/wiki_plugin_backlinks.erl
+END
+wiki_vsn.template
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/erlyaws/!svn/ver/115/trunk/yaws/applications/wiki/src/wiki_vsn.template
+END
+wiki.erl
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/wiki/src/wiki.erl
+END
+wiki_utils.erl
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/wiki/src/wiki_utils.erl
+END
+wiki_plugin_menu.erl
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/wiki/src/wiki_plugin_menu.erl
+END
+wiki_yaws.erl
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/wiki/src/wiki_yaws.erl
+END
+wiki_to_html.erl
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/wiki/src/wiki_to_html.erl
+END
+wiki_format_txt.erl
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/wiki/src/wiki_format_txt.erl
+END
+wiki_diff.erl
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/erlyaws/!svn/ver/1217/trunk/yaws/applications/wiki/src/wiki_diff.erl
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/erlyaws/!svn/ver/522/trunk/yaws/applications/wiki/src/Makefile
+END
+wiki_plugin_dummy.erl
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/erlyaws/!svn/ver/520/trunk/yaws/applications/wiki/src/wiki_plugin_dummy.erl
+END

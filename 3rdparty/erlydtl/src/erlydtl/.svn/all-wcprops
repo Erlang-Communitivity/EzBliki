@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/129/trunk/src/erlydtl
+END
+erlydtl_parser.yrl
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/128/trunk/src/erlydtl/erlydtl_parser.yrl
+END
+erlydtl.erl
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/119/trunk/src/erlydtl/erlydtl.erl
+END
+erlydtl_runtime.erl
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/129/trunk/src/erlydtl/erlydtl_runtime.erl
+END
+erlydtl_filters.erl
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/121/trunk/src/erlydtl/erlydtl_filters.erl
+END
+erlydtl_scanner.erl
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/118/trunk/src/erlydtl/erlydtl_scanner.erl
+END
+erlydtl_compiler.erl
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/129/trunk/src/erlydtl/erlydtl_compiler.erl
+END
+erlydtl_deps.erl
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/59/trunk/src/erlydtl/erlydtl_deps.erl
+END
